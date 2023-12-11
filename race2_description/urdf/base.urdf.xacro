@@ -59,14 +59,6 @@
         <child link="pressure"/>
     </joint>
 
-    <!-- thrusters -->
-    <!-- <link name="surge_thruster_link"/>
-    <joint name="surge_thruster_joint" type="fixed">
-        <origin xyz="-0.68 0.0 0.0" rpy="0.0 0.0 0.0"/>
-        <parent link="base_link"/>
-        <child link="surge_thruster_link"/>
-    </joint> -->
-
     <link name="surge_port_thruster_link"/>
     <joint name="race2/surge_port_servo_joint" type="revolute">
         <origin xyz="-0.86 -0.125 -0.05485" rpy="-1.5707 0.0 -0.52"/>
@@ -84,22 +76,6 @@
         <axis xyz="0 0 1"/> 
         <limit effort="10" lower="-1.57" upper="1.57" velocity="10"/>
     </joint>
-
-
-    <!-- new front-facing thrusters -->
-    <!-- <link name="front_left_thruster_link"/>
-    <joint name="front_left_thruster_joint" type="continuous">
-        <origin xyz="0.0 0.1 0.0" rpy="0.0 0.0 0.0"/>
-        <parent link="base_link"/>
-        <child link="front_left_thruster_link"/>
-    </joint>
-
-    <link name="front_right_thruster_link"/>
-    <joint name="front_right_thruster_joint" type="continuous">
-        <origin xyz="0.0 -0.1 0.0" rpy="0.0 0.0 0.0"/>
-        <parent link="base_link"/>
-        <child link="front_right_thruster_link"/>
-    </joint> -->
 
     <!-- Heave Bow Thruster -->
     <link name="heave_bow_thruster_link"/>
