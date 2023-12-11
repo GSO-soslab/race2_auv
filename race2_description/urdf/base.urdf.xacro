@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+
+<robot name="race2" xmlns:xacro="http://ros.org/wiki/xacro">
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://world_of_stonefish/data/parts/body/race2_body.obj" scale="1.0 1.0 1.0"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="cg_link"/>
+    <joint name="cg_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="cg_link"/>
+    </joint>
+
+    <link name="imu"/>
+    <joint name="imu_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="imu"/>
+    </joint>
+
+    <link name="imu_sf"/>
+    <joint name="imu_sf_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="imu_sf"/>
+    </joint>
+
+    <link name="dvl"/>
+    <joint name="dvl_joint" type="fixed">
+        <origin xyz="-0.22 0.0 -0.08" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="dvl"/>
+    </joint>
+
+    <link name="dvl_sf"/>
+    <joint name="dvl_sf_joint" type="fixed">
+        <origin xyz="-0.22 0.0 -0.08" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="dvl_sf"/>
+    </joint>
+
+    <link name="gps"/>
+    <joint name="gps_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.28" rpy="3.14 0.0 -1.5707963"/>
+        <parent link="base_link"/>
+        <child link="gps"/>
+    </joint>
+
+    <link name="pressure"/>
+    <joint name="pressure_joint" type="fixed">
+        <origin xyz="-0.25 0.0 0.05" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="pressure"/>
+    </joint>
+
+    <!-- thrusters -->
+    <!-- <link name="surge_thruster_link"/>
+    <joint name="surge_thruster_joint" type="fixed">
+        <origin xyz="-0.68 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="surge_thruster_link"/>
+    </joint> -->
+
+    <link name="surge_port_thruster_link"/>
+    <joint name="race2/surge_port_servo_joint" type="revolute">
+        <origin xyz="-0.86 -0.125 -0.05485" rpy="-1.5707 0.0 -0.52"/>
+        <parent link="base_link"/>
+        <child link="surge_port_thruster_link"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="10" lower="-1.57" upper="1.57" velocity="10"/>
+    </joint>
+
+    <link name="surge_starboard_thruster_link"/>
+    <joint name="race2/surge_starboard_servo_joint" type="revolute">
+        <origin xyz="-0.86 0.125 -0.05485" rpy="1.5707 0.0 0.52"/>
+        <parent link="base_link"/>
+        <child link="surge_starboard_thruster_link"/>
+        <axis xyz="0 0 1"/> 
+        <limit effort="10" lower="-1.57" upper="1.57" velocity="10"/>
+    </joint>
+
+
+    <!-- new front-facing thrusters -->
+    <!-- <link name="front_left_thruster_link"/>
+    <joint name="front_left_thruster_joint" type="continuous">
+        <origin xyz="0.0 0.1 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="front_left_thruster_link"/>
+    </joint>
+
+    <link name="front_right_thruster_link"/>
+    <joint name="front_right_thruster_joint" type="continuous">
+        <origin xyz="0.0 -0.1 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="front_right_thruster_link"/>
+    </joint> -->
+
+    <!-- Heave Bow Thruster -->
+    <link name="heave_bow_thruster_link"/>
+    <joint name="heave_bow_thruster_joint" type="fixed">
+        <origin xyz="-0.07535 0.0 -0.07535" rpy="0.0 1.57079632679 0.0"/>
+        <parent link="base_link"/>
+        <child link="heave_bow_thruster_link"/>
+    </joint>
+
+    <!-- Heave Stern Thruster Port -->
+    <link name="heave_stern_thruster_port_link"/>
+    <joint name="heave_stern_thruster_port_joint" type="fixed">
+        <origin xyz="-0.56 -0.1034 -0.07535" rpy="0.0 1.57079632679 0.0"/>
+        <parent link="base_link"/>
+        <child link="heave_stern_thruster_port_link"/>
+    </joint>
+
+    <!-- Heave Stern Thruster Stbd -->
+    <link name="heave_stern_thruster_stbd_link"/>
+    <joint name="heave_stern_thruster_stbd_joint" type="fixed">
+        <origin xyz="-0.56 0.1034 -0.07535" rpy="0.0 1.57079632679 0.0"/>
+        <parent link="base_link"/>
+        <child link="heave_stern_thruster_stbd_link"/>
+    </joint>
+
+    <!-- Sway Stern Thruster -->
+    <link name="sway_stern_thruster_link"/>
+    <joint name="sway_stern_thruster_joint" type="fixed">
+        <origin xyz="-0.66635 0.0 -0.07535" rpy="0.0 0.0 -1.57079632679"/>
+        <parent link="base_link"/>
+        <child link="sway_stern_thruster_link"/>
+    </joint>
+
+
+    <!-- perception sensors -->
+    <!-- <link name="mss"/>
+    <joint name="mss_joint" type="fixed">
+        <origin xyz="0.65 0.0 0.0" rpy="3.1415926 1.5707963 0.0"/>
+        <parent link="base_link"/>
+        <child link="mss"/>
+    </joint> -->
+</robot>
