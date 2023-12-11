@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!--
-    This file is part of ALPHA AUV project.
+    This file is part of RACE AUV project.
 
-    Author: Emir Cem Gezer
-    Email: emircem@uri.edu;emircem.gezer@gmail.com
-    Year: 2022
+    Author: Farhang Naderi
+    Email: farhang.naderi@uri.edu;farhang.nba@gmail.com
+    Year: 2023
 
-    Copyright (C) 2022 Smart Ocean Systems Laboratory
+    Copyright (C) 2023 Smart Ocean Systems Laboratory
 -->
 <launch>
 
