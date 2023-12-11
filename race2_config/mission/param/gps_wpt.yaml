@@ -1,11 +1,7 @@
 state_fail: start
 
-
-
-
 # target_frame_id: {{ set in the launch file }}
 # target_frame_id: race2/odom
-
 
 waypoints:
   - {lat: 41.0002, long: -71.0002}
