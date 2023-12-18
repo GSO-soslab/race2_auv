@@ -1,10 +1,9 @@
 generator_type: tf
 
 # controller_frequency: 20
-controller_frequency: 10
+controller_frequency: 20
 
 # tf_prefix: alpha_rise
-
 cg_link: cg_link
 
 odometry_source: /odometry/filtered/local
@@ -23,31 +22,14 @@ control_modes:
     z:        {p: 20.0,    i: 2.0 ,  d: 5.0,  i_max: 30, i_min: -30}
     surge:    {p: 50.0,    i: 10.0,   d: 0.0,   i_max: 30, i_min: -30}
     pitch:    {p: 10.0,    i: 0.0,   d: 10.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 10.0,    i: 1.0,   d: 20.0,  i_max: 30, i_min: -30}
-
-  # hold_xyz:
-  #   x:        {p: 2.5,    i: 1.0,   d: 5.0,  i_max: 10, i_min: -10}
-  #   y:        {p: 2.5,    i: 1.0 ,  d: 5.0,  i_max: 10, i_min: -10}
-  #   z:        {p: 10.0,   i: 0.1 ,  d: 20.0, i_max: 20, i_min: -20}
-
-  # hold_depth:
-  #   z:        {p: 5.0,   i: 0.3 ,  d: 2.0, i_max: 20, i_min: -20}
-  #   pitch:    {p: 5.0,    i: 0.3,   d: 2.0,  i_max: 20, i_min: -20}
-  #   # yaw:      {p: 5.0,    i: 0.4,   d: 10.0,  i_max: 30, i_min: -30}
-
-  # hold_4dof:
-  #   x:        {p: 2.5,    i: 1.0,   d: 5.0,  i_max: 10, i_min: -10}
-  #   y:        {p: 2.5,    i: 1.0 ,  d: 5.0,  i_max: 10, i_min: -10}
-  #   z:        {p: 10.0,   i: 1.0 ,  d: 5.0,  i_max: 20, i_min: -20}
-  #   pitch:    {p: 10.0,   i: 0.01,  d: 5.0,  i_max: 20, i_min: -20}
+    yaw:      {p: 10.0,    i: 1.0,   d: 10.0,  i_max: 30, i_min: -30}
 
   hold_dof:
-    # x:        {p: 2.5,    i: 1.0,   d: 5.0,  i_max: 10, i_min: -10}
-    # y:        {p: 2.5,    i: 1.0 ,  d: 5.0,  i_max: 10, i_min: -10}
-    surge:    {p: 50.0,    i: 1.0,   d: 2.0,   i_max: 20, i_min: -20}
-    z:        {p: 20.0,   i: 1.0 ,  d: 5.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 10.0,   i: 0.01,  d: 5.0,  i_max: 20, i_min: -20}
+    z:        {p: 10.0,   i: 1.0 ,  d: 5.0,  i_max: 20, i_min: -20}
+    surge:    {p: 50.0,    i: 10.0,   d: 0.0,   i_max: 30, i_min: -30}
+    pitch:    {p: 30.0,   i: 0.5,  d: 1.0,  i_max: 20, i_min: -20}
     yaw:      {p: 10.0,   i: 0.2,   d: 5.0,  i_max: 20, i_min: -20}
+
 
 ##
 # THRUSTERS
@@ -124,16 +106,17 @@ thruster_polynomials:
   
 ## Force limits
 ## T200 limit is +-25 N beyond that will cause nan solution in QP
+
 thruster_limits:
   surge:
-    max: 20
-    min: -20
+    max: 60
+    min: -10
   sway_bow:
     max: 25
     min: -25
   heave_bow:
-    max: 10
-    min: -10
+    max: 30
+    min: -30
   heave_stern:
-    max: 10
-    min: -10
+    max: 30
+    min: -30
