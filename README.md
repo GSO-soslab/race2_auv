@@ -4,7 +4,7 @@
 - Ubuntu 20.04
 
 ## Directory structure
-- `race2_auv`: Meta package for the standard ALPHA AUV.
+- `race2_auv`: Meta package for the standard Race2 AUV.
 
 - `race2_bringup`: Launch files to bring the vehicle/simulation up runnning
 
@@ -12,7 +12,7 @@
 
 - `race2_description`: URDF files, rviz configuration, and vehicle mesh
 
-- `race2_stonefish`: ALPHA scenario files for the `Stonefish` simulator.
+- `race2_stonefish`: RACE2 scenario files for the `Stonefish` simulator.
 
 
 ## Instllation
@@ -46,7 +46,7 @@ git clone https://github.com/uri-ocean-robotics/stonefish
     ```
 
 
-### Setup ALPHA Standard Repo
+### Setup RACE2 Standard Repo
 - Clone `race2_auv` repo in your ROS Workspace
     ```bash
     git clone https://github.com/GSO-soslab/race2_auv
