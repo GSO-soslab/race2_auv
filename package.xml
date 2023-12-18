@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>alpha_ins_auv</name>
+  <name>race2_auv</name>
   <version>0.0.0</version>
-  <description>The alpha_ins_auv package</description>
+  <description>The race2_auv package</description>
 
-  <maintainer email="farhang.naderi@uri.edu">Emir Cem Gezer</maintainer>
-  <author email="farhang.naderi@uri.edu">Emir Cem Gezer</author>
+  <maintainer email="farhang.naderi@uri.edu">Farhang Naderi</maintainer>
+  <author email="farhang.naderi@uri.edu">Farhang Naderi</author>
   <author email="mzhou@uri.edu">Mingxi Zhou</author>
 
   <license>GPLv3</license>

@@ -12,7 +12,7 @@
 
     <arg name="robot_name" default="race2"/>
     <!-- set param for mvp_control -->
-    <node ns="$(arg robot_name)" pkg="mvp_control" type="mvp_control_ros_node" name="alpha_control" output="screen">
+    <node ns="$(arg robot_name)" pkg="mvp_control" type="mvp_control_ros_node" name="race_control" output="screen">
         <rosparam command="load" file="$(find race2_config)/config/control.yaml"/>
         <param name="tf_prefix" value="$(arg robot_name)"/>
         <param name="world_link" value="$(arg robot_name)/world_ned"/>

@@ -3,7 +3,8 @@ generator_type: tf
 # controller_frequency: 20
 controller_frequency: 20
 
-# tf_prefix: alpha_rise
+# tf_prefix: race2
+
 cg_link: cg_link
 
 odometry_source: /odometry/filtered/local
@@ -103,7 +104,7 @@ thruster_polynomials:
   sway_bow:     [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
   heave_bow:    [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
   heave_stern:  [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
-  
+
 ## Force limits
 ## T200 limit is +-25 N beyond that will cause nan solution in QP
 
