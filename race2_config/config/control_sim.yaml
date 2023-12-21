@@ -37,7 +37,7 @@ control_modes:
 ##
 thruster_ids:
   - surge_port
-  - surge_starboard
+  - surge_starbrd
   - heave_bow
   - heave_stern_port
   - heave_stern_stbd
@@ -45,7 +45,7 @@ thruster_ids:
 
 control_tf:
   surge_port: surge_port_thruster_link
-  surge_starboard: surge_starboard_thruster_link
+  surge_starboard: surge_starbrd_thruster_link
   heave_bow: heave_bow_thruster_link
   heave_stern_port: heave_stern_port_thruster_link
   heave_stern_stbd: heave_stern_stbd_thruster_link

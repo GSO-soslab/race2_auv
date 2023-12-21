@@ -54,31 +54,35 @@ control_modes:
 ##
 thruster_ids:
   - surge_port
-  - surge_starboard
+  - surge_starbrd
   - heave_bow
   - heave_stern_port
   - heave_stern_stbd
   - sway_stern
 
 control_tf:
-  surge_port: surge_port_thruster_link
-  surge_starboard: surge_starboard_thruster_link
+  surge_port: surge_port_duct_link
+  surge_starbrd: surge_starbrd_duct_link
   heave_bow: heave_bow_thruster_link
   heave_stern_port: heave_stern_port_thruster_link
   heave_stern_stbd: heave_stern_stbd_thruster_link
   sway_stern: sway_stern_thruster_link
 
 thruster_command_topics:
-  surge: control/thruster/surge
-  sway_bow: control/thruster/sway_bow
+  surge_port: control/thruster/surge_port
+  surge_starboard: control/thruster/surge_starboard
   heave_bow: control/thruster/heave_bow
-  heave_stern: control/thruster/heave_stern
+  heave_stern_port: control/thruster/heave_stern_port
+  heave_stern_stbd: control/thruster/heave_stern_stbd
+  sway_stern: control/thruster/sway_stern
 
 thruster_force_topics:
-  surge: control/force/surge
-  sway_bow: control/force/sway_bow
+  surge_port: control/force/surge_port
+  surge_starboard: control/force/surge_starboard
   heave_bow: control/force/heave_bow
-  heave_stern: control/force/heave_stern
+  heave_stern_port: control/force/heave_stern_port
+  heave_stern_stbd: control/force/heave_stern_stbd
+  sway_stern: control/force/sway_stern
 
 
 ##
