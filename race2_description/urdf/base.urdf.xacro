@@ -59,23 +59,31 @@
         <child link="pressure"/>
     </joint>
 
-    <link name="surge_port_thruster_link"/>
+    <!-- Start: Port Surge -->
+
+    <link name="surge_port_duct_link"/>
     <joint name="race2/surge_port_servo_joint" type="revolute">
         <origin xyz="-0.86 -0.125 -0.05485" rpy="-1.5707 0.0 -0.52"/>
         <parent link="base_link"/>
-        <child link="surge_port_thruster_link"/>
+        <child link="surge_port_duct_link"/>
         <axis xyz="0 0 1"/>
         <limit effort="10" lower="-1.57" upper="1.57" velocity="10"/>
     </joint>
 
-    <link name="surge_starboard_thruster_link"/>
+    <!-- End: Port Surge -->
+
+    <!-- Start: Starboard Surge -->
+
+    <link name="surge_starbrd_duct_link"/>
     <joint name="race2/surge_starboard_servo_joint" type="revolute">
         <origin xyz="-0.86 0.125 -0.05485" rpy="1.5707 0.0 0.52"/>
         <parent link="base_link"/>
-        <child link="surge_starboard_thruster_link"/>
+        <child link="surge_starbrd_duct_link"/>
         <axis xyz="0 0 1"/> 
         <limit effort="10" lower="-1.57" upper="1.57" velocity="10"/>
     </joint>
+
+    <!-- End: Starboard Surge -->
 
     <!-- Heave Bow Thruster -->
     <link name="heave_bow_thruster_link"/>
