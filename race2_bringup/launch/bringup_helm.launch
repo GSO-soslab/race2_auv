@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <!--
-    This file is part of RACE AUV project.
+    This file is part of RACE2 AUV project.
+
     Author: Farhang Naderi
-    Email: farhang.naderi@uri.edu
+    Email: farhang.naderi@uri.edu,farhang.nba@gmail.com
     Year: 2023
 
     Copyright (C) 2023 Smart Ocean Systems Laboratory
@@ -17,32 +18,32 @@
         -->
         <rosparam
             command="load"
-            file="$(find race2_config)/mission/config/helm.yaml"/>
+            file="$(find race2_auv)/race2_config/mission/config/helm.yaml"/>
 
         <!--
-            Load all the parameters for defined behaviors.
-            robot name related variables, e.g., frame id and topics needs to be defined in here, otherwise could be defined in the YAML file
+            Load all the parameters for the behaviors.
         -->
-        <!-- load depth tracking behavior params -->
-        <rosparam command="load" ns="depth_tracking" file="$(find race2_config)/mission/param/depth_tracking.yaml"/>
-        <!-- load periodic_surfacing behavior params -->
-        <rosparam command="load" ns="periodic_surfacing" file="$(find race2_config)/mission/param/periodic_surfacing.yaml"/>
+        <rosparam command="load" ns="periodic_surfacing" file="$(find race2_auv)/race2_config/mission/param/periodic_surfacing.yaml"/>
 
         <!-- load path following related param -->
-        <!-- following local path  -->
-        <rosparam command="load" ns="path_local" file="$(find race2_config)/mission/param/path_local.yaml"/>
-        <param name="path_local/frame_id" value="$(arg robot_name)/odom"/>
-        
-        <!-- following a path defined by gps coordinate -->
-        <rosparam command="load" ns="path_global" file="$(find race2_config)/mission/param/path_global.yaml"/>
-        <param name="path_global/frame_id" value="$(arg robot_name)/odom"/>
 
-        <!-- gps_wpt behavior will convert gps coordinate (using fromLL service) into local coordinate and publish to the topic-->
-        <rosparam command="load" ns="gps_wpt" file="$(find race2_config)/mission/param/gps_wpt.yaml"/>
+        <rosparam command="load" ns="path_3d" file="$(find race2_auv)/race2_config/mission/param/path_3d.yaml"/>
+        <!-- waypoint frame id  should keep in world-->
+        <param name="path_3d/frame_id" value="$(arg robot_name)/world"/>
+        <param name="path_3d/enu_frame" value="$(arg robot_name)/world"/>
+        <param name="path_3d/waypoint_path" value="$(find race2_auv)/race2_config/mission/param/go_to_list/"/>
+        <!-- robot localization local to lat lon service name  -->
+        <param name="path_3d/toll_service" value="/$(arg robot_name)/toLL"/>
+
+        <!-- <rosparam command="load" ns="gps_wpt" file="$(find race2_auv)/race2_config/mission/param/gps_wpt.yaml"/>
         <param name="gps_wpt/target_frame_id" value="$(arg robot_name)/odom"/>
         <param name="gps_wpt/target_topic" value="/$(arg robot_name)/helm/path_global/update_waypoints"/>
-        <param name="gps_wpt/fromll_service" value="/$(arg robot_name)/fromLL"/>
+        <param name="gps_wpt/fromll_service" value="/$(arg robot_name)/fromLL"/> -->
 
+
+        <rosparam command="load" ns="direct_control" file="$(find race2_auv)/race2_config/mission/param/direct_control.yaml"/>
+        <!-- <rosparam command="load" ns="timer" file="$(find race2_auv)/race2_config/mission/param/timer.yaml"/> -->
+       
     </node>
 
 </launch>
