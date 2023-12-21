@@ -86,19 +86,19 @@
     </joint>
 
     <!-- Heave Stern Thruster Port -->
-    <link name="heave_stern_thruster_port_link"/>
-    <joint name="heave_stern_thruster_port_joint" type="fixed">
+    <link name="heave_stern_port_thruster_link"/>
+    <joint name="heave_stern_port_thruster_joint" type="fixed">
         <origin xyz="-0.56 -0.1034 -0.07535" rpy="0.0 1.57079632679 0.0"/>
         <parent link="base_link"/>
-        <child link="heave_stern_thruster_port_link"/>
+        <child link="heave_stern_port_thruster_link"/>
     </joint>
 
     <!-- Heave Stern Thruster Stbd -->
-    <link name="heave_stern_thruster_stbd_link"/>
-    <joint name="heave_stern_thruster_stbd_joint" type="fixed">
+    <link name="heave_stern_stbd_thruster_link"/>
+    <joint name="heave_stern_stbd_thruster_joint" type="fixed">
         <origin xyz="-0.56 0.1034 -0.07535" rpy="0.0 1.57079632679 0.0"/>
         <parent link="base_link"/>
-        <child link="heave_stern_thruster_stbd_link"/>
+        <child link="heave_stern_stbd_thruster_link"/>
     </joint>
 
     <!-- Sway Stern Thruster -->
