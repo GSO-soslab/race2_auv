@@ -60,35 +60,61 @@
     </joint>
 
     <!-- Start: Port Surge -->
-
+    <link name="surge_port_servo_link"/>
+    <link name="surge_port_thruster_link"/>
     <link name="surge_port_duct_link"/>
-    <joint name="race2/surge_port_servo_joint" type="revolute">
+
+    <joint name="surge_port_servo_joint" type="fixed">
         <origin xyz="-0.86 -0.125 -0.05485" rpy="-1.5707 0.0 -0.52"/>
         <parent link="base_link"/>
+        <child link="surge_port_servo_link"/>
+    </joint>
+
+     <joint name="race2/surge_port_servo2duct_joint" type="revolute">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="surge_port_servo_link"/>
         <child link="surge_port_duct_link"/>
         <axis xyz="0 0 1"/>
         <limit effort="10" lower="-1.57" upper="1.57" velocity="10"/>
     </joint>
 
-    <!-- End: Port Surge -->
+    <joint name="surge_port_thruster_joint" type="fixed">
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+        <parent link="surge_port_duct_link"/>
+        <child link="surge_port_thruster_link"/>
+    </joint>
 
     <!-- Start: Starboard Surge -->
 
-    <link name="surge_starbrd_duct_link"/>
+    <!-- <link name="surge_starboard_duct_link"/>
     <joint name="race2/surge_starboard_servo_joint" type="revolute">
         <origin xyz="-0.86 0.125 -0.05485" rpy="1.5707 0.0 0.52"/>
-        <parent link="base_link"/>
-        <child link="surge_starbrd_duct_link"/>
+        <parent link="cg_link"/>
+        <child link="surge_starboard_duct_link"/>
         <axis xyz="0 0 1"/> 
         <limit effort="10" lower="-1.57" upper="1.57" velocity="10"/>
     </joint>
+
+    <link name="surge_starboard_base_link"/>
+    <joint name="surge_starboard_base_link" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
+        <parent link="surge_starboard_duct_link"/>
+        <child link="surge_starboard_base_link"/>
+    </joint>
+    
+    <link name="surge_starboard_thruster_link"/>
+    <joint name="race2/surge_starboard_thruster_joint" type="fixed">
+        <origin xyz="-0.86 0.125 -0.05485" rpy="1.5707 0.0 0.52"/>
+        <parent link="surge_port_base_link"/>
+        <child link="surge_starboard_thruster_link"/>
+    </joint> -->
 
     <!-- End: Starboard Surge -->
 
     <!-- Heave Bow Thruster -->
     <link name="heave_bow_thruster_link"/>
     <joint name="heave_bow_thruster_joint" type="fixed">
-        <origin xyz="-0.07535 0.0 -0.07535" rpy="0.0 1.57079632679 0.0"/>
+        <origin xyz="-0.07535 0.0 -0.07535" rpy="3.1415926 -1.571 0.0"/>
         <parent link="base_link"/>
         <child link="heave_bow_thruster_link"/>
     </joint>
@@ -96,7 +122,7 @@
     <!-- Heave Stern Thruster Port -->
     <link name="heave_stern_port_thruster_link"/>
     <joint name="heave_stern_port_thruster_joint" type="fixed">
-        <origin xyz="-0.56 -0.1034 -0.07535" rpy="0.0 1.57079632679 0.0"/>
+        <origin xyz="-0.56 -0.1034 -0.07535" rpy="-1.571 -1.571 0.0"/>
         <parent link="base_link"/>
         <child link="heave_stern_port_thruster_link"/>
     </joint>
@@ -104,7 +130,7 @@
     <!-- Heave Stern Thruster Stbd -->
     <link name="heave_stern_stbd_thruster_link"/>
     <joint name="heave_stern_stbd_thruster_joint" type="fixed">
-        <origin xyz="-0.56 0.1034 -0.07535" rpy="0.0 1.57079632679 0.0"/>
+        <origin xyz="-0.56 0.1034 -0.07535" rpy="1.571 -1.571 0.0"/>
         <parent link="base_link"/>
         <child link="heave_stern_stbd_thruster_link"/>
     </joint>
@@ -112,7 +138,7 @@
     <!-- Sway Stern Thruster -->
     <link name="sway_stern_thruster_link"/>
     <joint name="sway_stern_thruster_joint" type="fixed">
-        <origin xyz="-0.66635 0.0 -0.07535" rpy="0.0 0.0 -1.57079632679"/>
+        <origin xyz="-0.66635 0.0 -0.07535" rpy="3.1415926 0.0 -1.571"/>
         <parent link="base_link"/>
         <child link="sway_stern_thruster_link"/>
     </joint>

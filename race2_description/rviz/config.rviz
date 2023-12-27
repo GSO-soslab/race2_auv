@@ -111,11 +111,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        heave_stern_thruster_port_link:
+        heave_stern_port_thruster_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        heave_stern_thruster_stbd_link:
+        heave_stern_stbd_thruster_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -131,11 +131,15 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        surge_port_thruster_link:
+        surge_port_duct_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        surge_starboard_thruster_link:
+        surge_starbrd_duct_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        sway_stern_thruster_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -164,9 +168,9 @@ Visualization Manager:
           Value: false
         race2/heave_bow_thruster_link:
           Value: true
-        race2/heave_stern_thruster_port_link:
+        race2/heave_stern_port_thruster_link:
           Value: true
-        race2/heave_stern_thruster_stbd_link:
+        race2/heave_stern_stbd_thruster_link:
           Value: true
         race2/imu:
           Value: false
@@ -176,9 +180,11 @@ Visualization Manager:
           Value: true
         race2/pressure:
           Value: false
-        race2/surge_port_thruster_link:
+        race2/surge_port_duct_link:
           Value: true
-        race2/surge_starboard_thruster_link:
+        race2/surge_starbrd_duct_link:
+          Value: true
+        race2/sway_stern_thruster_link:
           Value: true
         race2/world:
           Value: true
@@ -203,9 +209,9 @@ Visualization Manager:
               {}
             race2/heave_bow_thruster_link:
               {}
-            race2/heave_stern_thruster_port_link:
+            race2/heave_stern_port_thruster_link:
               {}
-            race2/heave_stern_thruster_stbd_link:
+            race2/heave_stern_stbd_thruster_link:
               {}
             race2/imu:
               {}
@@ -213,9 +219,11 @@ Visualization Manager:
               {}
             race2/pressure:
               {}
-            race2/surge_port_thruster_link:
+            race2/surge_port_duct_link:
               {}
-            race2/surge_starboard_thruster_link:
+            race2/surge_starbrd_duct_link:
+              {}
+            race2/sway_stern_thruster_link:
               {}
           race2/world:
             race2/world_ned:
@@ -277,7 +285,7 @@ Visualization Manager:
   Global Options:
     Background Color: 238; 238; 236
     Default Light: true
-    Fixed Frame: race2/base_link
+    Fixed Frame: race2/odom
     Frame Rate: 30
   Name: root
   Tools:

@@ -2,17 +2,25 @@ helm_configuration:
   frequency: 10.0
   global_link: world_ned
   local_link: cg_link
-
+  
 finite_state_machine:
   - name: start
     mode: idle
     initial: true
     transitions:
-      - survey_3d
+      - survey_local
+      - survey_global
       - kill
-      - direct_control
+      - direct
+      - test
 
-  - name: survey_3d
+  - name: survey_local
+    mode: flight
+    transitions:
+      - start
+      - kill
+
+  - name: survey_global
     mode: flight
     transitions:
       - start
@@ -23,29 +31,57 @@ finite_state_machine:
     transition:
       - start
 
-  - name: direct_control
-    mode: hold_dof
+  - name: test
+    mode: hold_depth
+    transitions:
+      - start
+      - kill
+
+  - name: direct
+    mode: hold_5dof
     transitions:
       - start
       - kill
 
 behaviors:
-  - name: path_3d
-    plugin: helm::PathFollowing3D
+  - name: path_local
+    plugin: helm::PathFollowingI
     states:
-      - { name: survey_3d, priority: 1 }
+      - { name: survey_local, priority: 1 }
+
+  - name: path_global
+    plugin: helm::PathFollowingI
+    states:
+      - { name: survey_global, priority: 1 }
+
+  - name: depth_tracking
+    plugin: helm::DepthTracking
+    states:
+      - { name: survey_local, priority: 1 }
+      - { name: survey_global, priority: 1 }
 
   - name: periodic_surfacing
     plugin: helm::PeriodicSurface
     states:
-      - {name: survey_3d, priority: 2}
+      - {name: survey_local, priority: 2}
+      - {name: survey_global, priority: 2}
+
+  - name: gps_wpt
+    plugin: helm::GpsWaypoint
+    states:
+      - {name: survey_global, priority: 1}
 
   - name: direct_control
+    plugin: helm::DirectControl
+    states:
+      - { name: test, priority: 1 }
+
+  - name: direct_control_cont
     plugin: helm::DirectControlCont
     states:
-      - { name: direct_control, priority: 1 }
+      - { name: direct, priority: 1 }
 
   # - name: timer
   #   plugin: helm::Timer
   #   states:
-  #     - { name: test, priority: 2 }
+  #     - { name: test, priority: 2 }                 
