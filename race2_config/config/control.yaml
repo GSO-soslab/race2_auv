@@ -41,14 +41,14 @@ control_modes:
     pitch:    {p: 10.0,   i: 0.01,  d: 5.0,  i_max: 20, i_min: -20}
 
   hold_5dof:
-    x:        {p: 3.0,    i: 0.1,   d: 5.0,  i_max: 20, i_min: -20}
-    y:        {p: 3.0,    i: 0.1 ,  d: 5.0,  i_max: 20, i_min: -20}
-    z:        {p: 15.0,    i: 2.0 ,  d: 5.0,  i_max: 60, i_min: -60}
+    # x:        {p: 3.0,    i: 0.1,   d: 5.0,  i_max: 20, i_min: -20}
+    # y:        {p: 3.0,    i: 0.1 ,  d: 5.0,  i_max: 20, i_min: -20}
+    # z:        {p: 15.0,    i: 2.0 ,  d: 5.0,  i_max: 60, i_min: -60}
     # surge:    {p: 50.0,    i: 10.0,   d: 0.0,   i_max: 30, i_min: -30}
     # heave:    {p: 10.0,   i: 1.0,  d: 5.0,  i_max: 20, i_min: -30}
-    roll:     {p: 2.0,   i: 0.1,  d: 5.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 5.0,   i: 0.1,  d: 6.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 2.0,   i: 0.2,   d: 5.0,  i_max: 20, i_min: -20}
+    # roll:     {p: 2.0,   i: 0.1,  d: 5.0,  i_max: 20, i_min: -20}
+    # pitch:    {p: 2.0,   i: 0.3,  d: 9.0,  i_max: 20, i_min: -20}
+    yaw:      {p: 5.0,   i: 0.2,   d: 5.0,  i_max: 20, i_min: -20}
 
 ##
 # THRUSTERS
@@ -57,32 +57,32 @@ thruster_ids:
   - surge_port
   - surge_starboard
   - heave_bow
-  - heave_stern_port
-  - heave_stern_stbd
+  # - heave_stern_port
+  # - heave_stern_stbd
   - sway_stern
 
 control_tf:
   surge_port: surge_port_thruster_link
   surge_starboard: surge_starboard_thruster_link
   heave_bow: heave_bow_thruster_link
-  heave_stern_port: heave_stern_port_thruster_link
-  heave_stern_stbd: heave_stern_stbd_thruster_link
+  # heave_stern_port: heave_stern_port_thruster_link
+  # heave_stern_stbd: heave_stern_stbd_thruster_link
   sway_stern: sway_stern_thruster_link
 
 thruster_command_topics:
   surge_port: control/thruster/surge_port
   surge_starboard: control/thruster/surge_starboard
   heave_bow: control/thruster/heave_bow
-  heave_stern_port: control/thruster/heave_stern_port
-  heave_stern_stbd: control/thruster/heave_stern_stbd
+  # heave_stern_port: control/thruster/heave_stern_port
+  # heave_stern_stbd: control/thruster/heave_stern_stbd
   sway_stern: control/thruster/sway_stern
 
 thruster_force_topics:
   surge_port: control/force/surge_port
   surge_starboard: control/force/surge_starboard
   heave_bow: control/force/heave_bow
-  heave_stern_port: control/force/heave_stern_port
-  heave_stern_stbd: control/force/heave_stern_stbd
+  # heave_stern_port: control/force/heave_stern_port
+  # heave_stern_stbd: control/force/heave_stern_stbd
   sway_stern: control/force/sway_stern
 
 
@@ -134,8 +134,8 @@ thruster_polynomials:
   surge_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   surge_starboard: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   heave_bow: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
-  heave_stern_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
-  heave_stern_stbd: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+  # heave_stern_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+  # heave_stern_stbd: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   sway_stern: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
 
 ## Force limits
@@ -151,12 +151,12 @@ thruster_limits:
   heave_bow: 
       max: 20
       min: -20
-  heave_stern_port: 
-      max: 20
-      min: -20
-  heave_stern_stbd: 
-      max: 20
-      min: -20
+  # heave_stern_port: 
+  #     max: 20
+  #     min: -20
+  # heave_stern_stbd: 
+  #     max: 20
+  #     min: -20
   sway_stern: 
       max: 15
       min: -15

@@ -42,9 +42,14 @@
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race2_description)/rviz/config.rviz"/>
 
     <!-- bring up the helm -->
-    <!-- <include file="$(find race2_bringup)/launch/bringup_helm.launch">
-        <arg name="robot_name" value="$(arg robot_name)"/> -->
-     <!-- </include> -->
+    <include file="$(find race2_bringup)/launch/bringup_helm.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/> 
+
+    </include>    
+    
+    <include file="$(find race2_bringup)/launch/include/joystick.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
 
 
 </launch>

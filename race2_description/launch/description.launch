@@ -24,9 +24,9 @@
       name="$(arg robot_name)/robot_description"
       command="$(find xacro)/xacro '$(find race2_description)/urdf/base.urdf.xacro'"/>
 
-  <param
+  <!-- <param
       name="robot_description"
-      command="$(find xacro)/xacro '$(find race2_description)/urdf/base.urdf.xacro'"/>
+      command="$(find xacro)/xacro '$(find race2_description)/urdf/base.urdf.xacro'"/> -->
 
     <!-- add prefix on tf -->
     <node ns="$(arg robot_name)" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">

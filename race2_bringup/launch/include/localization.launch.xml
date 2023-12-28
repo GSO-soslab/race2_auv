@@ -99,9 +99,17 @@
     <group if="$(arg is_sim)">
 
         <node ns="$(arg robot_name)" name="imu_ned_to_enu" pkg="alpha_localization" type="imu_ned_to_enu" output="screen">
-            <remap from="imu_in/data" to="imu/stonefish/data"/>
+             <remap from="imu_in/data" to="imu/stonefish/data"/>
             <remap from="imu_out/data" to="imu/data"/>
             <param name="frame_id" value="$(arg robot_name)/imu"/>
+
+            <param name="roll_offset" value="3.1415926"/>
+            <param name="pitch_offset" value="0.0"/>
+            <param name="yaw_offset" value="1.5707"/>
+
+            <param name="roll_reverse" value="1"/>
+            <param name="pitch_reverse" value="-1"/>
+            <param name="yaw_reverse" value="-1"/>
         </node>
 
         <node ns="$(arg robot_name)" name="pressure_to_depth" pkg="alpha_localization" type="pressure_to_depth_node" output="screen">
