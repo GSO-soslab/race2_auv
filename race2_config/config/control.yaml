@@ -65,24 +65,24 @@ control_tf:
   surge_port: surge_port_thruster_link
   surge_starboard: surge_starboard_thruster_link
   heave_bow: heave_bow_thruster_link
-  # heave_stern_port: heave_stern_port_thruster_link
-  # heave_stern_stbd: heave_stern_stbd_thruster_link
+  heave_stern_port: heave_stern_port_thruster_link
+  heave_stern_stbd: heave_stern_stbd_thruster_link
   sway_stern: sway_stern_thruster_link
 
 thruster_command_topics:
   surge_port: control/thruster/surge_port
   surge_starboard: control/thruster/surge_starboard
   heave_bow: control/thruster/heave_bow
-  # heave_stern_port: control/thruster/heave_stern_port
-  # heave_stern_stbd: control/thruster/heave_stern_stbd
+  heave_stern_port: control/thruster/heave_stern_port
+  heave_stern_stbd: control/thruster/heave_stern_stbd
   sway_stern: control/thruster/sway_stern
 
 thruster_force_topics:
   surge_port: control/force/surge_port
   surge_starboard: control/force/surge_starboard
   heave_bow: control/force/heave_bow
-  # heave_stern_port: control/force/heave_stern_port
-  # heave_stern_stbd: control/force/heave_stern_stbd
+  heave_stern_port: control/force/heave_stern_port
+  heave_stern_stbd: control/force/heave_stern_stbd
   sway_stern: control/force/sway_stern
 
 
@@ -134,8 +134,8 @@ thruster_polynomials:
   surge_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   surge_starboard: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   heave_bow: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
-  # heave_stern_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
-  # heave_stern_stbd: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+  heave_stern_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+  heave_stern_stbd: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   sway_stern: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
 
 ## Force limits
@@ -151,12 +151,12 @@ thruster_limits:
   heave_bow: 
       max: 20
       min: -20
-  # heave_stern_port: 
-  #     max: 20
-  #     min: -20
-  # heave_stern_stbd: 
-  #     max: 20
-  #     min: -20
+  heave_stern_port: 
+      max: 20
+      min: -20
+  heave_stern_stbd: 
+      max: 20
+      min: -20
   sway_stern: 
       max: 15
       min: -15
