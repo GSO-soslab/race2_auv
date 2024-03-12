@@ -2,6 +2,9 @@ generator_type: tf
 
 controller_frequency: 10
 
+servo_joint_topic: /race2/control/servos/joint_states 
+servo_joint_setpoint_topic: /control/servos/desired_joint_states 
+
 # tf_prefix: race2
 
 cg_link: cg_link
@@ -59,19 +62,19 @@ thruster_ids:
   - heave_bow
   - sway_stern
 
-servo_ids:
-  - servo_port
-  - servo_starboard
-
 control_tf:
   surge_port: surge_port_thruster_link
   surge_starboard: surge_starboard_thruster_link
   heave_bow: heave_bow_thruster_link
   sway_stern: sway_stern_thruster_link
 
-servo_joints: # can get the link from this 
-  servo_port:  surge_port_servo2duct_joint  #@TODO: /race2/ to be addressed
-  servo_starboard: surge_starboard_servo2duct_joint
+thruster_servo_joints:
+  surge_port: surge_port_servo2duct_joint
+  surge_starboard: surge_starboard_servo2duct_joint
+
+#rudder_servo_joints:
+  # surge_port: surge_port_rudder2duct_joint
+  # surge_starboard: surge_starboard_rudder2duct_joint
 
 thruster_command_topics:
   surge_port: control/thruster/surge_port
