@@ -2,8 +2,8 @@ generator_type: tf
 
 controller_frequency: 10
 
-servo_joint_topic: /race2/control/servos/joint_states 
-servo_joint_setpoint_topic: /control/servos/desired_joint_states 
+servo_joint_topic: control/servos/joint_states 
+servo_joint_setpoint_topic: control/servos/desired_joint_states 
 
 # tf_prefix: race2
 
@@ -159,10 +159,5 @@ thruster_limits:
   sway_stern: 
       max: 20
       min: -20
-
-# servo limits in radians
-# servo_limits:
-#       max: 1.5
-#       min: -1.5 
 
 # servo_speed as a ROS param 
