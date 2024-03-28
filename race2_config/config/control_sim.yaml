@@ -2,9 +2,6 @@ generator_type: tf
 
 controller_frequency: 10
 
-servo_joint_topic: control/servos/joint_states 
-servo_joint_setpoint_topic: control/servos/desired_joint_states 
-
 # tf_prefix: race2
 
 cg_link: cg_link
@@ -47,11 +44,12 @@ control_modes:
     # x:        {p: 3.0,    i: 0.1,   d: 5.0,  i_max: 20, i_min: -20}
     # y:        {p: 3.0,    i: 0.1 ,  d: 5.0,  i_max: 20, i_min: -20}
     z:        {p: 15.0,    i: 2.0 ,  d: 5.0,  i_max: 60, i_min: -60}
-    # surge:    {p: 100.0,   i: 10.0,   d: 2.0,   i_max: 100, i_min: -100}
+    surge:    {p: 50.0,    i: 10.0,   d: 0.0,   i_max: 30, i_min: -30}
+    sway:     {p: 15.0,    i: 2.0 ,  d: 5.0,  i_max: 60, i_min: -60}
     # heave:    {p: 10.0,   i: 1.0,  d: 5.0,  i_max: 20, i_min: -30}
-    roll:     {p: 2.0,   i: 0.1,  d: 2.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 5.0,   i: 0.5,  d: 2.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 5.0,   i: 0.2,   d: 5.0,  i_max: 20, i_min: -20}
+    # roll:     {p: 2.0,   i: 0.1,  d: 5.0,  i_max: 20, i_min: -20}
+    pitch:    {p: 1.5,   i: 0.01,  d: 0.5,  i_max: 20, i_min: -20}
+    yaw:      {p: 5.0,   i: 0.1,   d: 5.0,  i_max: 20, i_min: -20}
 
 ##
 # THRUSTERS
@@ -60,37 +58,34 @@ thruster_ids:
   - surge_port
   - surge_starboard
   - heave_bow
+  # - heave_stern_port
+  # - heave_stern_stbd
   - sway_stern
 
 control_tf:
   surge_port: surge_port_thruster_link
   surge_starboard: surge_starboard_thruster_link
   heave_bow: heave_bow_thruster_link
+  # heave_stern_port: heave_stern_port_thruster_link
+  # heave_stern_stbd: heave_stern_stbd_thruster_link
   sway_stern: sway_stern_thruster_link
-
-thruster_servo_joints:
-  surge_port: surge_port_servo2duct_joint
-  surge_starboard: surge_starboard_servo2duct_joint
-
-#rudder_servo_joints:
-  # surge_port: surge_port_rudder2duct_joint
-  # surge_starboard: surge_starboard_rudder2duct_joint
 
 thruster_command_topics:
   surge_port: control/thruster/surge_port
   surge_starboard: control/thruster/surge_starboard
   heave_bow: control/thruster/heave_bow
+  # heave_stern_port: control/thruster/heave_stern_port
+  # heave_stern_stbd: control/thruster/heave_stern_stbd
   sway_stern: control/thruster/sway_stern
-
-servo_command_topics:
-  sub: control/servos/joint_states 
-  pub: control/servos/desired_joint_states 
 
 thruster_force_topics:
   surge_port: control/force/surge_port
   surge_starboard: control/force/surge_starboard
   heave_bow: control/force/heave_bow
+  # heave_stern_port: control/force/heave_stern_port
+  # heave_stern_stbd: control/force/heave_stern_stbd
   sway_stern: control/force/sway_stern
+
 
 ##
 # Polynomials for each thruster.
@@ -140,6 +135,8 @@ thruster_polynomials:
   surge_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   surge_starboard: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   heave_bow: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+  # heave_stern_port: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+  # heave_stern_stbd: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   sway_stern: [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
 
 ## Force limits
@@ -156,8 +153,12 @@ thruster_limits:
   heave_bow: 
       max: 20
       min: -20
+  # heave_stern_port: 
+  #     max: 20
+  #     min: -20
+  # heave_stern_stbd: 
+  #     max: 20
+  #     min: -20
   sway_stern: 
       max: 20
       min: -20
-
-# servo_speed as a ROS param 
