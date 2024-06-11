@@ -1,0 +1,44 @@
+Serial:
+  port: /dev/ttySC3
+  baud: 115200
+  parity: 0
+  databits: 8
+  stopbits: 1
+  timeout: 1000
+
+System:
+  safety_timeout: 3
+  safety_rate: 1
+
+PWM_Control:
+  # rotary-vertical-back-port
+  surge_port:
+    channel: 0
+    mode: thruster
+    topic: control/thruster/surge_port
+  # rotary-vertical-back-starbrd
+  surge_starboard:
+    channel: 1
+    mode: thruster
+    topic: control/thruster/surge_starboard
+  # horizontal-front
+  heave_bow:
+    channel: 2
+    mode: thruster
+    topic: control/thruster/heave_bow
+  # back-vertical-center
+  sway_stern:
+    channel: 3
+    mode: thruster
+    topic: control/thruster/sway_stern 
+  # port-servo
+  surge_servo_port:
+    channel: 4
+    mode: servo
+    topic: control/servos/surge_port
+  # starboard-servo
+  surge_servo_starboard:
+    channel: 5
+    mode: servo
+    topic: control/servos/surge_starboard 
+

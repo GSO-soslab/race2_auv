@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of RACE2 AUV project.
+
+    Author: Farhang Naderi
+    Email: farhang.naderi@uri.edu;farhang.nba@gmail.com
+    Year: 2023
+
+    Copyright (C) 2023 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+    <arg name="robot_name" default="race2"/>
+
+    <!--
+        List of the simulated worlds in the 'race2_stonefish'
+    -->
+    <arg name="scenario" default="ocean_race2"/>
+
+    <include file="$(find world_of_stonefish)/launch/simulation.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+        <arg name="scenario" value="$(arg scenario)"/>
+    </include>
+
+    <!-- load urdf vehicle description -->
+    <include file="$(find race2_bringup)/launch/include/description.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- load localization setup -->
+    <include file="$(find race2_bringup)/launch/include/localization.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+        <arg name="is_sim" value="true"/>
+    </include>
+
+    <!-- load mvp_control parameters -->
+    <include file="$(find race2_bringup)/launch/include/control.launch.xml">  
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- load preconfigured rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race2_description)/rviz/config.rviz"/>
+
+    <!-- bring up the helm -->
+    <include file="$(find race2_bringup)/launch/bringup_helm.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/> 
+
+    </include>    
+    
+    <include file="$(find race2_bringup)/launch/include/joystick.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+
+</launch>

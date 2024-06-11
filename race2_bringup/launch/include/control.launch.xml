@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of RACE AUV project.
+
+    Author: Farhang Naderi
+    Email: farhang.naderi@uri.edu;farhang.nba@gmail.com
+    Year: 2023
+
+    Copyright (C) 2023 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+    <arg name="robot_name" default="race2"/>
+    <!-- set param for mvp_control -->
+    <node ns="$(arg robot_name)" pkg="mvp_control" type="mvp_control_ros_node" name="race_control" output="screen">
+        <rosparam command="load" file="$(find race2_config)/config/control_sim.yaml"/>
+        <param name="tf_prefix" value="$(arg robot_name)"/>
+        <param name="world_link" value="$(arg robot_name)/world_ned"/>
+        <param name="odometry_source" value="odometry/filtered/local"/>
+    </node>
+
+</launch>
