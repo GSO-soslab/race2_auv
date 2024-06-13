@@ -13,9 +13,9 @@
     <arg name="robot_name" default="race2"/>
 
     <!-- Bring up Pico MCU -->
-    <include file="$(find race2_bringup)/launch/include/pi_pico.launch.xml">
+    <!-- <include file="$(find race2_bringup)/launch/include/pi_pico.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    </include> -->
 
     <!-- load urdf vehicle description -->
     <include file="$(find race2_bringup)/launch/include/description.launch.xml">
@@ -43,5 +43,8 @@
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
+    <!-- Launch the pwm_driver_node -->
+    <node name="pwm_driver_node" pkg="pwm_driver" type="pwm_driver_node" output="screen">
+    </node>
 
 </launch>

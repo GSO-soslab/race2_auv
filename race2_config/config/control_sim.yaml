@@ -47,12 +47,12 @@ control_modes:
     #x:        {p: 5.0,    i: 0.3,   d: 3.0,  i_max: 20, i_min: -20}
     #y:        {p: 5.0,    i: 0.3 ,  d: 3.0,  i_max: 20, i_min: -20}
     z:        {p: 30.0,    i: 0.5 ,  d: 6.0,  i_max: 20, i_min: -60}
-    sway:     {p: 30.0,   i: 5.0,   d: 5.0,   i_max: 50, i_min: -50}
-    surge:    {p: 50.0,   i: 5.0,   d: 35.0,   i_max: 50, i_min: -50}
+    # sway:     {p: 30.0,   i: 5.0,   d: 5.0,   i_max: 50, i_min: -50}
+    surge:    {p: 50.0,   i: 2.0,   d: 20.0,   i_max: 50, i_min: -50}
     #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  i_max: 20, i_min: -30}
-    roll:     {p: 20.0,   i: 0.5,  d: 4.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 12.0,   i: 0.4,  d: 4.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 10.0,   i: 0.6,   d: 3.0,  i_max: 20, i_min: -20}
+    # roll:     {p: 20.0,   i: 0.5,  d: 4.0,  i_max: 20, i_min: -20}
+    pitch:    {p: 8.0,   i: 0.4,  d: 6.0,  i_max: 20, i_min: -20}
+    yaw:      {p: 10.0,   i: 0.5,   d: 5.0,  i_max: 20, i_min: -20}
 
 #
 # THRUSTERS
@@ -199,8 +199,8 @@ thruster_limits:
 servo_limits: #radians
 
   surge_port:
-      max_angle: 3.1
-      min_angle: -3.1
+      max_angle: 3.0
+      min_angle: -3.0
   surge_starboard: 
-      max_angle:  3.1
-      min_angle: -3.1
+      max_angle:  3.0
+      min_angle: -3.0
