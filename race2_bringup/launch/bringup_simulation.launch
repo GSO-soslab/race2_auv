@@ -39,7 +39,7 @@
     </include>
 
     <!-- load preconfigured rviz -->
-    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race2_description)/rviz/config.rviz"/>
+    <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race2_description)/rviz/config.rviz"/> -->
 
     <!-- bring up the helm -->
     <include file="$(find race2_bringup)/launch/bringup_helm.launch">
@@ -51,5 +51,9 @@
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
+    <!-- Launch the pwm_driver_node -->
+    <node name="pwm_driver_node" pkg="pwm_driver" type="pwm_driver_node" output="screen">
+    
+    </node>
 
 </launch>
