@@ -50,9 +50,9 @@ control_modes:
     # sway:     {p: 30.0,   i: 5.0,   d: 5.0,   i_max: 50, i_min: -50}
     surge:    {p: 50.0,   i: 2.0,   d: 20.0,   i_max: 50, i_min: -50}
     #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  i_max: 20, i_min: -30}
-    # roll:     {p: 20.0,   i: 0.5,  d: 4.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 8.0,   i: 0.4,  d: 6.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 10.0,   i: 0.5,   d: 5.0,  i_max: 20, i_min: -20}
+    roll:     {p: 12.0,   i: 0.5,  d: 4.0,  i_max: 20, i_min: -20}
+    pitch:    {p: 10.0,   i: 0.4,  d: 5.0,  i_max: 20, i_min: -20}
+    yaw:      {p: 12.0,   i: 0.3,   d: 5.0,  i_max: 20, i_min: -20}
 
 #
 # THRUSTERS
@@ -149,30 +149,33 @@ thruster_polynomials:
 # Linear transformation computes the PWM value from the angle.
 # The setpoint commands in this system are defined between -1 and 1.
 #
-# The transformation follows the equation:
-# PWM = A * angle + B
+# The transformation follows a sawtooth-like equation:
+# PWM = slope * 2 * ((angle - x_min) / period - floor(0.5 + (angle - x_min) / period))
 #
 # where:
 # - angle is in the range [-3.14, 3.14] (radians)
 # - PWM is in the range [-1, 1]
+# - period is calculated as 2.0 / slope
+# - x_min is the angle in radians where the minimum PWM value occurs 
+#   also dependent on you defined zero angle in hardware
 #
-# Array would hold the coefficients in the following format:
-# [A, B]
-#
-# The coefficients A and B are determined based on the servo
-# calibration. The calibration process ensures that the servo
-# responds accurately to the input angles, providing the correct
+# The reason for using this transformation is that the relationship
+# between the angle and the PWM value is not simply linear but more
+# complex, resembling a sawtooth pattern. This approach ensures that
+# the servo responds accurately to the input angles, providing the correct
 # PWM output for the articulated thruster control.
 #
-# Example for a given servo:
-# A = 0.318
-# B = 0.0
+# Array holds the coefficients in the following format:
+# [slope, x_min]
+#
+# For current ROV Maker servo these are from lab tests:
+# slope = 1.772
+# x_min = 1.474 (in radians, where the minimum PWM value occurs)
 ##
 
 servo_coefficients: 
-
-  surge_port: [0.318,0.0]
-  surge_starboard: [0.318,0.0]
+  surge_port: [1.772, 1.474]
+  surge_starboard: [1.772, 1.474]
 
 ## Force limits
 ## T200 limit is +-25 N beyond that will cause nan solution in QP

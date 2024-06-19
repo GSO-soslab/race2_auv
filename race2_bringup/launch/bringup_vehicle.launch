@@ -1,21 +1,58 @@
 <?xml version="1.0"?>
 <!--
-    This file is part of RACE2 AUV project.
+    This file is part of RACE AUV project.
 
     Author: Farhang Naderi
     Email: farhang.naderi@uri.edu;farhang.nba@gmail.com
     Year: 2024
 
-    Copyright (C) 2023 Smart Ocean Systems Laboratory
+    Copyright (C) 2023-2024 Smart Ocean Systems Laboratory
 -->
 <launch>
 
+
     <arg name="robot_name" default="race2"/>
 
-    <!-- Bring up Pico MCU -->
-    <!-- <include file="$(find race2_bringup)/launch/include/pi_pico.launch.xml">
+
+    <!-- ============================================ -->
+    <!--               Hardware Bring-ups             -->
+    <!-- ============================================ -->
+
+
+    <!-- Bring up the Bluerobotics Pressure sensor -->
+    <include file="$(find race_bringup)/launch/include/bluerobotics_bar30.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include> -->
+    </include>  
+
+    <!-- Bring up the Power Minotor  -->
+    <include file="$(find race_bringup)/launch/include/power_monitor.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>  
+
+    <!-- Bring up Nucleus DVL -->
+    <include file="$(find race_bringup)/launch/include/nucleus_dvl.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- Bring up Xsens AHRS -->
+    <include file="$(find race_bringup)/launch/include/xsens_imu.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- Bring up GPS -->
+    <include file="$(find race_bringup)/launch/include/gps_nmea.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- Launch the pwm_driver_node -->
+    <node name="pwm_driver_node" pkg="pwm_driver" type="pwm_driver_node" output="screen">
+    </node>
+
+
+    <!-- ============================================ -->
+    <!--       Vehicle Setup and Control              -->
+    <!-- ============================================ -->
+
 
     <!-- load urdf vehicle description -->
     <include file="$(find race2_bringup)/launch/include/description.launch.xml">
@@ -33,18 +70,25 @@
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
-    <!-- bring up the helm -->
+    <!-- helm bringup -->
     <include file="$(find race2_bringup)/launch/bringup_helm.launch">
         <arg name="robot_name" value="$(arg robot_name)"/> 
 
-    </include>    
+    </include> 
     
+    <!-- Just for teleop-->
     <include file="$(find race2_bringup)/launch/include/joystick.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
-    <!-- Launch the pwm_driver_node -->
-    <node name="pwm_driver_node" pkg="pwm_driver" type="pwm_driver_node" output="screen">
-    </node>
+
+    <!-- ============================================ -->
+    <!--            Visualization Stuff               -->
+    <!-- ============================================ -->
+
+
+    <!-- Launch rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race_description)/rviz/config.rviz"/>
+
 
 </launch>

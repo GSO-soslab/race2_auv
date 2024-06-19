@@ -3,6 +3,8 @@ project(race2_description)
 
 find_package(catkin REQUIRED COMPONENTS
   tf2_ros
+  robot_state_publisher
+  joint_state_publisher
 )
 
 catkin_package()
