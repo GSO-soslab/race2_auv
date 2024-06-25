@@ -47,12 +47,12 @@ control_modes:
     #x:        {p: 5.0,    i: 0.3,   d: 3.0,  i_max: 20, i_min: -20}
     #y:        {p: 5.0,    i: 0.3 ,  d: 3.0,  i_max: 20, i_min: -20}
     z:        {p: 30.0,    i: 0.5 ,  d: 6.0,  i_max: 20, i_min: -60}
-    # sway:     {p: 30.0,   i: 5.0,   d: 5.0,   i_max: 50, i_min: -50}
-    surge:    {p: 50.0,   i: 2.0,   d: 20.0,   i_max: 50, i_min: -50}
+    sway:     {p: 30.0,   i: 5.0,   d: 5.0,   i_max: 50, i_min: -50}
+    surge:    {p: 50.0,   i: 2.0,   d: 35.0,   i_max: 50, i_min: -50}
     #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  i_max: 20, i_min: -30}
     roll:     {p: 12.0,   i: 0.5,  d: 4.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 10.0,   i: 0.4,  d: 5.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 12.0,   i: 0.3,   d: 5.0,  i_max: 20, i_min: -20}
+    pitch:    {p: 8.0,   i: 0.4,  d: 5.0,  i_max: 20, i_min: -20}
+    yaw:      {p: 10.0,   i: 0.3,   d: 5.0,  i_max: 20, i_min: -20}
 
 #
 # THRUSTERS
@@ -143,39 +143,38 @@ thruster_polynomials:
   heave_bow: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
   sway_stern: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
 
-
 # Servo coefficients for each articulated thruster.
 #
 # Linear transformation computes the PWM value from the angle.
 # The setpoint commands in this system are defined between -1 and 1.
 #
-# The transformation follows a sawtooth-like equation:
-# PWM = slope * 2 * ((angle - x_min) / period - floor(0.5 + (angle - x_min) / period))
+# The transformation follows a linear equation with conditional offsets:
+# PWM = slope * angle + offset
 #
 # where:
 # - angle is in the range [-3.14, 3.14] (radians)
 # - PWM is in the range [-1, 1]
-# - period is calculated as 2.0 / slope
-# - x_min is the angle in radians where the minimum PWM value occurs 
-#   also dependent on you defined zero angle in hardware
+# - offset is selected based on the angle being greater or less than a center point
+# - slope is the same for both conditions
 #
-# The reason for using this transformation is that the relationship
-# between the angle and the PWM value is not simply linear but more
-# complex, resembling a sawtooth pattern. This approach ensures that
-# the servo responds accurately to the input angles, providing the correct
-# PWM output for the articulated thruster control.
+# If the angle is greater than the center point, offset1 is used.
+# If the angle is less than or equal to the center point, offset2 is used.
+#
+# This approach allows for different offsets to be applied based on the angle,
+# providing accurate PWM outputs for the articulated thruster control.
 #
 # Array holds the coefficients in the following format:
-# [slope, x_min]
+# [slope, offset1, offset2, center]
 #
 # For current ROV Maker servo these are from lab tests:
-# slope = 1.772
-# x_min = 1.474 (in radians, where the minimum PWM value occurs)
-##
+# slope = 0.32
+# offset1 = -1.38 (for angles greater than the center point)
+# offset2 = 0.61 (for angles less than or equal to the center point)
+# center = 1.25 (the angle in radians where the offset changes)
 
 servo_coefficients: 
-  surge_port: [1.772, 1.474]
-  surge_starboard: [1.772, 1.474]
+  surge_port: [0.32,-1.38,0.61,1.25]
+  surge_starboard: [0.32,-1.38,0.61,1.25]
 
 ## Force limits
 ## T200 limit is +-25 N beyond that will cause nan solution in QP

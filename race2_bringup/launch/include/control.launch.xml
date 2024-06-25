@@ -13,13 +13,12 @@
 
     <arg name="robot_name" default="race2"/>
 
-    <arg name="is_sim" default="false"/>
+    <arg name="is_sim" default="true"/>
 
     <arg name="delay" default="20.0" />
 
     <!-- Sim -->
     <group if="$(eval arg('is_sim') == true)">
-    <arg name="robot_name" default="race2"/>
         <!-- set param for mvp_control -->
         <node ns="$(arg robot_name)" pkg="mvp_control" type="mvp_control_ros_node" name="race2_control" output="screen">
             <rosparam command="load" file="$(find race2_config)/config/control_sim.yaml"/>
