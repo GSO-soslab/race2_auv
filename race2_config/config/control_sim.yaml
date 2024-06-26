@@ -173,8 +173,8 @@ thruster_polynomials:
 # center = 1.25 (the angle in radians where the offset changes)
 
 servo_coefficients: 
-  surge_port: [0.32,-1.38,0.61,1.25]
-  surge_starboard: [0.32,-1.38,0.61,1.25]
+  surge_port: [0.3124,0.0026]
+  surge_starboard: [0.3124,0.0026]
 
 ## Force limits
 ## T200 limit is +-25 N beyond that will cause nan solution in QP

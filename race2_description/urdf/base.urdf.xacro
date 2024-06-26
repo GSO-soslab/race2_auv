@@ -89,7 +89,7 @@
     </joint>
 
     <joint name="surge_port_thruster_joint" type="fixed">
-        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <origin rpy="0.0 0.0 -1.78" xyz="0.0 0.0 0.0" />
         <parent link="surge_port_duct_link" />
         <child link="surge_port_thruster_link" />
     </joint>
@@ -116,7 +116,7 @@
     </joint>
 
     <joint name="surge_starboard_thruster_joint" type="fixed">
-        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <origin rpy="0.0 0.0 -1.78" xyz="0.0 0.0 0.0" />
         <parent link="surge_starboard_duct_link" />
         <child link="surge_starboard_thruster_link" />
     </joint>
