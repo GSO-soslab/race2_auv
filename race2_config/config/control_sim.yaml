@@ -47,10 +47,10 @@ control_modes:
     #x:        {p: 5.0,    i: 0.3,   d: 3.0,  i_max: 20, i_min: -20}
     #y:        {p: 5.0,    i: 0.3 ,  d: 3.0,  i_max: 20, i_min: -20}
     z:        {p: 30.0,    i: 0.5 ,  d: 6.0,  i_max: 20, i_min: -60}
-    sway:     {p: 30.0,   i: 5.0,   d: 5.0,   i_max: 50, i_min: -50}
+    #sway:     {p: 10.0,   i: 5.0,   d: 5.0,   i_max: 50, i_min: -50}
     surge:    {p: 50.0,   i: 2.0,   d: 35.0,   i_max: 50, i_min: -50}
     #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  i_max: 20, i_min: -30}
-    roll:     {p: 12.0,   i: 0.5,  d: 4.0,  i_max: 20, i_min: -20}
+    #roll:     {p: 12.0,   i: 0.5,  d: 4.0,  i_max: 20, i_min: -20}
     pitch:    {p: 8.0,   i: 0.4,  d: 5.0,  i_max: 20, i_min: -20}
     yaw:      {p: 10.0,   i: 0.3,   d: 5.0,  i_max: 20, i_min: -20}
 
@@ -68,6 +68,10 @@ control_tf:
   surge_starboard: surge_starboard_thruster_link
   heave_bow: heave_bow_thruster_link
   sway_stern: sway_stern_thruster_link
+
+control_tf_servo: 
+  surge_port: surge_port_servo_link
+  surge_starboard: surge_starboard_servo_link
 
 thruster_servo_joints:
   surge_port: surge_port_servo2duct_joint
@@ -148,29 +152,19 @@ thruster_polynomials:
 # Linear transformation computes the PWM value from the angle.
 # The setpoint commands in this system are defined between -1 and 1.
 #
-# The transformation follows a linear equation with conditional offsets:
+# The transformation follows a linear equation:
 # PWM = slope * angle + offset
 #
 # where:
 # - angle is in the range [-3.14, 3.14] (radians)
 # - PWM is in the range [-1, 1]
-# - offset is selected based on the angle being greater or less than a center point
-# - slope is the same for both conditions
+# - slope and offset are derived from the servo coefficients
 #
-# If the angle is greater than the center point, offset1 is used.
-# If the angle is less than or equal to the center point, offset2 is used.
+# This approach provides accurate PWM outputs for the articulated thruster control.
 #
-# This approach allows for different offsets to be applied based on the angle,
-# providing accurate PWM outputs for the articulated thruster control.
-#
-# Array holds the coefficients in the following format:
-# [slope, offset1, offset2, center]
-#
-# For current ROV Maker servo these are from lab tests:
-# slope = 0.32
-# offset1 = -1.38 (for angles greater than the center point)
-# offset2 = 0.61 (for angles less than or equal to the center point)
-# center = 1.25 (the angle in radians where the offset changes)
+# For the current ROV Maker servo, these coefficients are from lab tests:
+# surge_port: [slope = 0.3124, offset = 0.0026]
+# surge_starboard: [slope = 0.3124, offset = 0.0026]
 
 servo_coefficients: 
   surge_port: [0.3124,0.0026]
@@ -204,5 +198,5 @@ servo_limits: #radians
       max_angle: 3.0
       min_angle: -3.0
   surge_starboard: 
-      max_angle:  3.0
+      max_angle: 3.0
       min_angle: -3.0
