@@ -29,8 +29,8 @@ system:
     # 
     voltage_ratio: 0.090082
     #
-    current_ratio: 0.0905
+    current_ratio: 0.0900
     #
-    current_offset: 2.5
+    current_offset: 0.5
     #
-    current_scale: 0.066
+    current_scale: 0.133

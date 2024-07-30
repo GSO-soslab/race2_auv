@@ -4,13 +4,13 @@
 
     Author: Farhang
     Email: farhang.naderi@uri.edu,farhang.nba@gmail.com
-    Year: 2023
+    Year: 2024
 
-    Copyright (C) 2023 Smart Ocean Systems Laboratory
+    Copyright (C) 2023-2024 Smart Ocean Systems Laboratory
 -->
 <launch>
 
-    <arg name="robot_name" default="race2"/>
+    <arg name="robot_name" default="changeme"/>
 
     <node ns="$(arg robot_name)" pkg="mvp_helm" type="helm" name="helm" output="screen">
         <!--
@@ -23,7 +23,7 @@
         <!--
             Load all the parameters for the behaviors.
         -->
-        <rosparam command="load" ns="periodic_surfacing" file="$(find race2_config)/mission/param/periodic_surfacing.yaml"/>
+        <!-- <rosparam command="load" ns="periodic_surfacing" file="$(find race2_config)/mission/param/periodic_surfacing.yaml"/> -->
 
         <!-- load path following related param -->
 
@@ -41,7 +41,7 @@
         <param name="gps_wpt/fromll_service" value="/$(arg robot_name)/fromLL"/> -->
 
 
-        <rosparam command="load" ns="direct_control" file="$(find race2_config)/mission/param/direct_control.yaml"/>
+        <!-- <rosparam command="load" ns="direct_control" file="$(find race2_config)/mission/param/direct_control.yaml"/> -->
         <rosparam command="load" ns="teleop" file="$(find race2_config)/mission/param/teleop.yaml"/>
         <!-- <rosparam command="load" ns="timer" file="$(find race2_config)/mission/param/timer.yaml"/> -->
        

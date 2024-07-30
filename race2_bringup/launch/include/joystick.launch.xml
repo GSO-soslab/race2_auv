@@ -33,6 +33,4 @@
         <param name="~dev" value="/dev/input/js0" />
   </node>
 
-
-
 </launch>

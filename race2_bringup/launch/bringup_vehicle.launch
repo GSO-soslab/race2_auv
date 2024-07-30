@@ -20,29 +20,43 @@
 
 
     <!-- Bring up the Bluerobotics Pressure sensor -->
-    <include file="$(find race_bringup)/launch/include/bluerobotics_bar30.launch.xml">
+    <include file="$(find race2_bringup)/launch/include/bluerobotics_bar30.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>  
 
     <!-- Bring up the Power Minotor  -->
-    <include file="$(find race_bringup)/launch/include/power_monitor.launch.xml">
+    <include file="$(find race2_bringup)/launch/include/power_monitor.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>  
 
     <!-- Bring up Nucleus DVL -->
-    <include file="$(find race_bringup)/launch/include/nucleus_dvl.launch.xml">
+    <!-- <include file="$(find race2_bringup)/launch/include/nucleus_dvl.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    </include> -->
 
-    <!-- Bring up Xsens AHRS -->
-    <include file="$(find race_bringup)/launch/include/xsens_imu.launch.xml">
+    <!-- Bring up MicroStrain AHRS -->
+    <include file="$(find race2_bringup)/launch/include/microstrain.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    </include> 
+
+    <!-- Bring up madgwick filter-->
+    <include file="$(find race2_bringup)/launch/include/madgwick_filter.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include> 
 
     <!-- Bring up GPS -->
-    <include file="$(find race_bringup)/launch/include/gps_nmea.launch.xml">
+    <include file="$(find race2_bringup)/launch/include/gps_nmea.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
+
+    <!-- <include file="$(find race2_bringup)/launch/include/gps_gpsd.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include> -->
+
+    <!-- Bringup computer monitor node-->
+    <!-- <include file="$(find race2_bringup)/launch/include/monitor.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include> -->
 
     <!-- Launch the pwm_driver_node -->
     <node name="pwm_driver_node" pkg="pwm_driver" type="pwm_driver_node" output="screen">
@@ -89,6 +103,5 @@
 
     <!-- Launch rviz -->
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race_description)/rviz/config.rviz"/>
-
 
 </launch>

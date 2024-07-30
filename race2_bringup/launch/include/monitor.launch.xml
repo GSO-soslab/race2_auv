@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of RACE AUV project.
+
+    Author: Farhang Naderi
+    Email: farhang.naderi@uri.edu;farhang.nba@gmail.com
+    Year: 2024
+
+    Copyright (C) 2024 Smart Ocean Systems Laboratory
+-->
+<launch>
+    <arg name="robot_name" default="changeme"/>
+    <!-- in mvp_utilitues -->
+    <node ns="$(arg robot_name)" name="$(anon computer_monitoring)" pkg="computer_monitoring" type="log_ram_temp.py" output="screen"/>
+</launch>

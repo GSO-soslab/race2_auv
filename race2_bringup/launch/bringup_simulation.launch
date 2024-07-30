@@ -4,9 +4,9 @@
 
     Author: Farhang Naderi
     Email: farhang.naderi@uri.edu;farhang.nba@gmail.com
-    Year: 2023
+    Year: 2024
 
-    Copyright (C) 2023 Smart Ocean Systems Laboratory
+    Copyright (C) 2023-2024 Smart Ocean Systems Laboratory
 -->
 <launch>
 
@@ -28,7 +28,7 @@
     </include>
 
     <!-- load localization setup -->
-    <include file="$(find race2_bringup)/launch/include/localization.launch.xml">
+    <include file="$(find race2_bringup)/launch/include/localization_sim.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
         <arg name="is_sim" value="true"/>
     </include>

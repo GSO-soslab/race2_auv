@@ -85,7 +85,7 @@
         <parent link="surge_port_servo_link" />
         <child link="surge_port_duct_link" />
         <axis xyz="0 0 1" />
-        <limit effort="10" lower="-3.14" upper="3.14" velocity="10" />
+        <limit effort="10" lower="-3.0" upper="3.0" velocity="10" />
     </joint>
 
     <joint name="surge_port_thruster_joint" type="fixed">
@@ -112,7 +112,7 @@
         <parent link="surge_starboard_servo_link" />
         <child link="surge_starboard_duct_link" />
         <axis xyz="0 0 1" />
-        <limit effort="10" lower="-3.14" upper="3.14" velocity="10" />
+        <limit effort="10" lower="-3.0" upper="3.0" velocity="10" />
     </joint>
 
     <joint name="surge_starboard_thruster_joint" type="fixed">
