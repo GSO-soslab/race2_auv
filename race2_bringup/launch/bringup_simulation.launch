@@ -39,7 +39,7 @@
     </include>
 
     <!-- load preconfigured rviz -->
-    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race2_description)/rviz/config.rviz"/>
+    <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find race2_description)/rviz/config.rviz"/> -->
 
     <!-- bring up the helm -->
     <include file="$(find race2_bringup)/launch/bringup_helm.launch">
