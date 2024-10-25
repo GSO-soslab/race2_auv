@@ -49,7 +49,7 @@
 
     <link name="dvl_sf" />
     <joint name="dvl_sf_joint" type="fixed">
-        <origin xyz="0.1 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         <parent link="base_link" />
         <child link="dvl_sf" />
     </joint>
@@ -85,7 +85,7 @@
         <parent link="surge_port_servo_link" />
         <child link="surge_port_duct_link" />
         <axis xyz="0 0 1" />
-        <limit effort="10" lower="-2.1" upper="2.1" velocity="20" />
+        <limit effort="10" lower="-2.0" upper="2.0" velocity="20" />
     </joint>
 
     <joint name="surge_port_thruster_joint" type="fixed">
@@ -112,7 +112,7 @@
         <parent link="surge_starboard_servo_link" />
         <child link="surge_starboard_duct_link" />
         <axis xyz="0 0 1" />
-        <limit effort="10" lower="-2.1" upper="2.1" velocity="20" />
+        <limit effort="10" lower="-2.0" upper="2.0" velocity="20" />
     </joint>
 
     <joint name="surge_starboard_thruster_joint" type="fixed">
