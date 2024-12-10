@@ -14,8 +14,8 @@ local_link: race2/cg_link
 max_z: 100
 max_roll: 1.5707963 
 max_pitch: 1.5707963
-max_surge: 0.8
-max_sway: 0.8
+max_surge: 0.3
+max_sway: 0.3
 
 ####tele-op, ang in degrees####
 ##left up/down controls surge
