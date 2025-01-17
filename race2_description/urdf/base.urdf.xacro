@@ -86,7 +86,7 @@
         <parent link="surge_port_servo_link" />
         <child link="surge_port_duct_link" />
         <axis xyz="0 0 1" />
-        <limit effort="10" lower="-3.10000000000000" upper="3.10000000000000" velocity="20" />
+        <limit effort="10" lower="-1.5700000000" upper="1.5700000000" velocity="20" />
     </joint>
 
     <joint name="surge_port_thruster_joint" type="fixed">
@@ -114,7 +114,7 @@
         <parent link="surge_starboard_servo_link" />
         <child link="surge_starboard_duct_link" />
         <axis xyz="0 0 1" />
-        <limit effort="10" lower="-3.10000000000000" upper="3.10000000000000" velocity="20" />
+        <limit effort="10" lower="-1.57000000000" upper="1.5700000000" velocity="20" />
     </joint>
 
     <joint name="surge_starboard_thruster_joint" type="fixed">
@@ -178,8 +178,8 @@
     <!-- Sway Stern Thruster -->
     <link name="sway_stern_thruster_link" />
     <joint name="sway_stern_thruster_joint" type="fixed">
-        <origin xyz="-0.216 0.0 -0.07535" rpy="3.1415926 0.0 -1.571" />
-        <!-- <origin xyz="-0.216 0.0 0.0" rpy="3.1415926 0.0 -1.571" /> -->
+        <!-- <origin xyz="-0.216 0.0 -0.07535" rpy="3.1415926 0.0 -1.571" /> -->
+        <origin xyz="-0.216 0.0 0.0" rpy="3.1415926 0.0 -1.571" />
         <parent link="base_link" />
         <child link="sway_stern_thruster_link" />
     </joint>

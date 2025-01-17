@@ -39,37 +39,29 @@ control_modes:
   #   pitch:    {p: 8.0,   i: 1.0,  d: 15.0,  pid_max: 10, pid_min: -10}
   #   yaw:      {p: 4.0,   i: 0.5,   d: 15.0,  pid_max: 10, pid_min: -10}
 
-  hold_dof:
-    #current (not to change)
-    # x:        {p: 5.0,    i: 0.3,   d: 3.0,  pid_max: 20, pid_min: -20}
-    # y:        {p: 5.0,    i: 0.3 ,  d: 3.0,  pid_max: 20, pid_min: -20}
-    z:        {p: 50.0,    i: 5.0 ,  d: 3.0,  pid_max: 50, pid_min: -50}
-    sway:     {p: 0.5,   i: 0.1,   d: 0.5,   pid_max: 10, pid_min: -10}
-    surge:    {p: 80.0,   i: 8.0,   d: 0.0,   pid_max: 70, pid_min: -70}
-    #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  pid_max: 20, pid_min: -30}
-    roll:     {p: 0.2,   i: 0.02,  d: 0.5,  pid_max: 5, pid_min: -5}
-    pitch:    {p: 0.5,   i: 0.05,  d: 1.0,  pid_max: 5, pid_min: -5}
-    yaw:      {p: 6.0,   i: 0.5,   d: 25.0,  pid_max: 20, pid_min: -20}
-
-    # #trial
-    # z:        {p: 10.0,    i: 5.0 ,  d: 3.0,  pid_max: 30, pid_min: -30}
-    # sway:     {p: 2.0,   i: 0.1,   d: 17.0,   pid_max: 20, pid_min: -20}
-    # surge:    {p: 10.0,   i: 8.0,   d: 0.0,   pid_max: 70, pid_min: -70}
-    # #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  pid_max: 20, pid_min: -30}
-    # roll:     {p: 10.0,   i: 0.5,  d: 3.0,  pid_max: 10, pid_min: -10}
-    # pitch:    {p: 10.0,   i: 0.5,  d: 3.0,  pid_max: 10, pid_min: -10}
-    # yaw:      {p: 10.0,   i: 0.5,   d: 5.0,  pid_max: 50, pid_min: -50}
-
-  # hold_dof_q:
-  #   #x:        {p: 5.0,    i: 0.3,   d: 3.0,  pid_max: 20, pid_min: -20}
-  #   #y:        {p: 5.0,    i: 0.3 ,  d: 3.0,  pid_max: 20, pid_min: -20}
-  #   z:        {p: 30.0,    i: 0.5 ,  d: 6.0,  pid_max: 20, pid_min: -60}
-  #   sway:     {p: 2.0,   i: 0.1,   d: 17.0,   pid_max: 20, pid_min: -20}
-  #   surge:    {p: 50.0,   i: 5.0,   d: 5.0,   pid_max: 50, pid_min: -50}
+  # hold_dof:
+  #   #current (not to change)
+  #   # x:        {p: 5.0,    i: 0.3,   d: 3.0,  pid_max: 20, pid_min: -20}
+  #   # y:        {p: 5.0,    i: 0.3 ,  d: 3.0,  pid_max: 20, pid_min: -20}
+  #   z:        {p: 50.0,    i: 5.0 ,  d: 3.0,  pid_max: 50, pid_min: -50}
+  #   sway:     {p: 0.5,   i: 0.1,   d: 0.5,   pid_max: 10, pid_min: -10}
+  #   surge:    {p: 60.0,   i: 3.0,   d: 0.0,   pid_max: 100, pid_min: -100}
   #   #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  pid_max: 20, pid_min: -30}
-  #   # roll:     {p: 1.0,   i: 0.01,  d: 15.0,  pid_max: 10, pid_min: -10}
-  #   pitch:    {p: 2.0,   i: 0.1,  d: 15.0,  pid_max: 10, pid_min: -10}
-  #   yaw:      {p: 6.0,   i: 1.0,   d: 22.0,  pid_max: 50, pid_min: -50}
+  #   roll:     {p: 0.2,   i: 0.02,  d: 0.5,  pid_max: 5, pid_min: -5}
+  #   pitch:    {p: 0.5,   i: 0.05,  d: 1.0,  pid_max: 5, pid_min: -5}
+  #   yaw:      {p: 6.0,   i: 0.5,   d: 20.0,  pid_max: 20, pid_min: -20}
+
+
+  hold_dof:
+    #x:        {p: 5.0,    i: 0.3,   d: 3.0,  pid_max: 20, pid_min: -20}
+    #y:        {p: 5.0,    i: 0.3 ,  d: 3.0,  pid_max: 20, pid_min: -20}
+    z:        {p: 12.0,    i: 0.5 ,  d: 15.0,  pid_max: 30, pid_min: -30}
+    sway:     {p: 8.0,   i: 0.5,   d: 10.0,   pid_max: 20, pid_min: -20}
+    surge:    {p: 50.0,   i: 4.0,   d: 0.0,   pid_max: 40, pid_min: -40}
+    #heave:    {p: 10.0,   i: 1.0,  d: 5.0,  pid_max: 20, pid_min: -30}
+    roll:     {p: 2.0,   i: 0.2,  d: 10.0,  pid_max: 10, pid_min: -10}
+    pitch:    {p: 10.0,   i: 0.1,  d: 15.0,  pid_max: 10, pid_min: -10}
+    yaw:      {p: 12.0,   i: 0.06,   d: 15.0,  pid_max: 30, pid_min: -30}
 #
 # THRUSTERS
 ##
@@ -94,8 +86,8 @@ thruster_servo_joints:
   surge_starboard: surge_starboard_servo2duct_joint
 
 thruster_servo_speeds: 
-  surge_port: 5.24  #rad/s default 5.24
-  surge_starboard: 5.24 #rad/s default 5.24
+  surge_port: 2.22  #rad/s default 5.24
+  surge_starboard: 2.22 #rad/s default 5.24
   
 thruster_command_topics:
   surge_port: control/thruster/surge_port
@@ -205,8 +197,8 @@ thruster_limits:
       max: 15
       min: -15
   sway_stern: 
-      max: 15
-      min: -15
+      max: 20
+      min: -20
 
 # servo_limits: #radians
 
