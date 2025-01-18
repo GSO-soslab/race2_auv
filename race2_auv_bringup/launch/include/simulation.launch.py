@@ -58,4 +58,36 @@ def generate_launch_description():
             parameters=[stonefish_driver_param_file]
         ),
 
+        Node(
+            package="world_of_stonefish",
+            executable="imu_driver_node",
+            namespace=robot_name,
+            name="imu_driver_node",
+            remappings=[
+                    ('imu_in/data', 'imu/stonefish/data'),
+                    ('imu_out/data', 'imu/data'),
+                ],
+            parameters=[
+                {'frame_id': robot_name + '/imu_sf'},
+                stonefish_driver_param_file
+                ]
+        ),
+
+        Node(
+            package="world_of_stonefish",
+            executable="dvl_driver_node",
+            namespace=robot_name,
+            name="dvl_driver_node",
+            parameters=[stonefish_driver_param_file]
+        ),
+
+        Node(
+            package="world_of_stonefish",
+            executable="pressure_sensor_node",
+            namespace=robot_name,
+            name="pressure_sensor_node",
+            parameters=[
+                {'frame_id': robot_name + '/world'}]
+        ),
+
     ])

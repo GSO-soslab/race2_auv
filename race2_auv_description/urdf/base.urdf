@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<robot name="race2_auv">
+   <link name="nose_tip_link">
+        <!-- <visual>
+            <origin xyz="00.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://alpha_rise_description/mesh/alpha_rise_rviz.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual> -->
+    </link>
+
+    
+    <link name="base_link"/>
+    <joint name="base_link" type="fixed">
+        <origin xyz="-0.456 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="nose_tip_link"/>
+    </joint>
+
+    <link name="cg_link"/>
+    <joint name="cg_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="cg_link"/>
+    </joint>
+
+
+    <link name="imu"/>
+    <joint name="imu_joint" type="fixed">
+        <origin xyz="-0.4 -0.0 0.1" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="imu"/>
+    </joint>
+
+    <link name="imu_sf"/>
+    <joint name="imu__sf_joint" type="fixed">
+        <origin xyz="-0.4 0.0 0.1" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="imu_sf"/>
+    </joint>
+
+    <link name="dvl"/>
+    <joint name="dvl_joint" type="fixed">
+        <origin xyz="-0.5 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="dvl"/>
+    </joint>
+
+     <link name="dvl_sf"/>
+    <joint name="dvl_sf_joint" type="fixed">
+        <origin xyz="-0.5 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="dvl_sf"/>
+    </joint>
+
+    <link name="gps"/>
+    <joint name="gps_joint" type="fixed">
+        <origin xyz="-0.35 0.0 0.4" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="gps"/>
+    </joint>
+
+    <link name="pressure"/>
+    <joint name="pressure_joint" type="fixed">
+        <origin xyz="-0.7 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="pressure"/>
+    </joint>
+
+    <!-- thrusters -->
+
+    <link name="sway_thruster_link"/>
+    <joint name="sway_thruster_joint" type="fixed">
+        <origin xyz="0.66635 0.0 0.07535" rpy="0.0 0.0 1.5707"/>
+        <parent link="base_link"/>
+        <child link="sway_thruster_link"/>
+    </joint>
+
+
+    <link name="heave_bow_thruster_link"/>
+    <joint name="heave_bow_thruster_joint" type="fixed">
+        <origin xyz="-0.07535 0.0 0.07535" rpy="0.0 -1.5707 0.0"/>
+        <parent link="base_link"/>
+        <child link="heave_bow_thruster_link"/>
+    </joint>
+    
+
+</robot>

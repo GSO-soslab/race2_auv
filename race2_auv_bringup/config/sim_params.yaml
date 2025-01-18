@@ -1,11 +1,11 @@
-# /race2_auv/imu_driver_node:
-#     ros__parameters:
-#       roll_offset: 3.1415926
-#       pitch_offset: 0.0
-#       yaw_offset: 1.5707
-#       roll_reverse: 1.0
-#       pitch_reverse: -1.0
-#       yaw_reverse: -1.0
+/race2_auv/imu_driver_node:
+    ros__parameters:
+      roll_offset: 3.1415926
+      pitch_offset: 0.0
+      yaw_offset: 1.5707
+      roll_reverse: 1.0
+      pitch_reverse: -1.0
+      yaw_reverse: -1.0
 
 /race2_auv/thruster_driver_node:
     ros__parameters:
@@ -24,8 +24,8 @@
                          /race2_auv/control/surge_starboard_servo]
       servo_joint_names: [race2_auv/surge_port_servo_joint, 
                           race2_auv/surge_starboard_servo_joint]
-# /race2_auv/dvl_driver_node:
-#     ros__parameters:
-#       dvl_in: /mvp2_test_robot/dvl/stonefish/raw
-#       dvl_out: /mvp2_test_robot/dvl/twist
-#       dvl_alt_out: /mvp2_test_robot/dvl/altitude
+/race2_auv/dvl_driver_node:
+    ros__parameters:
+      dvl_in: /mvp2_test_robot/dvl/stonefish/raw
+      dvl_out: /mvp2_test_robot/dvl/twist
+      dvl_alt_out: /mvp2_test_robot/dvl/altitude
