@@ -13,7 +13,7 @@
     
     <link name="base_link"/>
     <joint name="base_link" type="fixed">
-        <origin xyz="-0.456 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="nose_tip_link"/>
     </joint>
@@ -72,7 +72,7 @@
 
     <link name="sway_thruster_link"/>
     <joint name="sway_thruster_joint" type="fixed">
-        <origin xyz="0.66635 0.0 0.07535" rpy="0.0 0.0 1.5707"/>
+        <origin xyz="-0.66635 0.0 0.07535" rpy="0.0 0.0 -1.5707"/>
         <parent link="base_link"/>
         <child link="sway_thruster_link"/>
     </joint>
@@ -80,10 +80,28 @@
 
     <link name="heave_bow_thruster_link"/>
     <joint name="heave_bow_thruster_joint" type="fixed">
-        <origin xyz="-0.07535 0.0 0.07535" rpy="0.0 -1.5707 0.0"/>
+        <origin xyz="-0.07535 0.0 0.07535" rpy="0.0 1.5707 0.0"/>
         <parent link="base_link"/>
         <child link="heave_bow_thruster_link"/>
     </joint>
-    
+
+    <link name = "surge_port_thruster_link"/>
+    <joint name="race2_auv/surge_port_servo_joint" type="revolute">
+        <origin rpy="1.571 0.0 -0.52" xyz="-0.86 -0.125 -0.05485"/>
+        <parent link="cg_link"/>
+        <child link="surge_port_thruster_link"/>
+        <axis xyz = "0 0 1"/>
+        <limit effort="10" lower="-1.57100" upper="1.57100" velocity="20" />
+    </joint>
+
+    <link name = "surge_starboard_thruster_link"/>
+    <joint name="race2_auv/surge_starboard_servo_joint" type="revolute">
+        <origin rpy="-1.571 0.0 0.52" xyz="-0.86 0.125 -0.05485"/> 
+        <parent link="cg_link"/>
+        <child link="surge_starboard_thruster_link"/>
+        <axis xyz = "0 0 1"/>
+        <limit effort="10" lower="-1.57100" upper="1.57100" velocity="20" />
+    </joint>
+
 
 </robot>

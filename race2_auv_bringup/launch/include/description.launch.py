@@ -41,6 +41,9 @@ def generate_launch_description():
             # output='screen',
             parameters=[{'robot_description' : robot_desc},
                         {'frame_prefix': robot_name +'/'}],
+            remappings=[
+                    ('joint_states', 'stonefish/servo/joint_states'),
+                ],
            ),
 
         Node(
