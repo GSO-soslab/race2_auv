@@ -91,7 +91,7 @@
         <parent link="cg_link"/>
         <child link="surge_port_thruster_link"/>
         <axis xyz = "0 0 1"/>
-        <limit effort="10" lower="-1.57100" upper="1.57100" velocity="20" />
+        <limit effort="10" lower="-3.14" upper="3.14" velocity="20" />
     </joint>
 
     <link name = "surge_starboard_thruster_link"/>
@@ -100,7 +100,7 @@
         <parent link="cg_link"/>
         <child link="surge_starboard_thruster_link"/>
         <axis xyz = "0 0 1"/>
-        <limit effort="10" lower="-1.57100" upper="1.57100" velocity="20" />
+        <limit effort="10" lower="-3.14" upper="3.14" velocity="20" />
     </joint>
 
 
