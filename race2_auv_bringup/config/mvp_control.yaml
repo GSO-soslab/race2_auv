@@ -9,5 +9,5 @@
     child_link_initial: cg_link
     world_link_initial: world_ned
     controller_no_setpoint_timeout: 2.0
-    auto_vector_direction: true
-    direction_cost_factor: 5.0
+    auto_vector_direction: false
+    direction_cost_factor: 0.0

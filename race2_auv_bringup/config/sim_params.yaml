@@ -11,7 +11,7 @@
     ros__parameters:
       thruster_pub_topic: /race2_auv/stonefish/thruster_command
       thruster_length: 4
-      thruster_sub_topics: [/race2_auv/control/thruster/sway, 
+      thruster_sub_topics: [/race2_auv/control/thruster/heave_stern, 
                           /race2_auv/control/thruster/heave_bow, 
                           /race2_auv/control/thruster/surge_port, 
                           /race2_auv/control/thruster/surge_starboard]
