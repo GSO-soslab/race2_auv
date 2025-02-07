@@ -17,7 +17,7 @@ def generate_launch_description():
     simulation_data = os.path.join(world_of_stonefish_dir, 'data/')
     scenario_desc = os.path.join(world_of_stonefish_dir, 'world', sim_world)
     simulation_rate = "100"
-    window_res_x = "800"
+    window_res_x = "1200"
     window_res_y = "800"
     rendering_quality ="high"
 
@@ -57,6 +57,17 @@ def generate_launch_description():
             # output="screen",
             parameters=[stonefish_driver_param_file]
         ),
+
+        # Node(
+        #     package="world_of_stonefish",
+        #     executable="rudder_driver_node",
+        #     namespace=robot_name,
+        #     name="rudder_driver_node",
+        #     # prefix=['stdbuf -o L'],
+        #     # output="screen",
+        #     parameters=[stonefish_driver_param_file]
+        # ),
+
 
         Node(
             package="world_of_stonefish",

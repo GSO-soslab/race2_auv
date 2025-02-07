@@ -22,8 +22,11 @@
       servo_length: 2
       servo_sub_topics: [/race2_auv/control/surge_port_servo, 
                          /race2_auv/control/surge_starboard_servo]
+                        #  /race2_auv/control/stern_rudder_servo]
       servo_joint_names: [race2_auv/surge_port_servo_joint, 
                           race2_auv/surge_starboard_servo_joint]
+                          # race2_auv/stern_rudder_servo_joint]
+
 /race2_auv/dvl_driver_node:
     ros__parameters:
       dvl_in: /race2_auv/dvl/stonefish/raw
