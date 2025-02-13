@@ -17,7 +17,7 @@ def generate_launch_description():
     simulation_data = os.path.join(world_of_stonefish_dir, 'data/')
     scenario_desc = os.path.join(world_of_stonefish_dir, 'world', sim_world)
     simulation_rate = "100"
-    window_res_x = "1200"
+    window_res_x = "800"
     window_res_y = "800"
     rendering_quality ="high"
 
