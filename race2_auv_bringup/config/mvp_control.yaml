@@ -10,4 +10,5 @@
     world_link_initial: world_ned
     controller_no_setpoint_timeout: 2.0
     auto_vector_direction: true
-    total_force_cost_factor: 0.00001
+    # total_force_cost_factor: 0.00001
+    total_force_cost_factor: 0.005

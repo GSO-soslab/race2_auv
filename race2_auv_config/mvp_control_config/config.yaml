@@ -13,14 +13,22 @@ control_modes:
     # pitch:    {p: 10.0,    i: 0.0,   d: 10.0,  i_max: 20, i_min: -20}
     # yaw:      {p: 10.0,    i: 1.0,   d: 10.0,  i_max: 30, i_min: -30}
 
-  4dof:
-    z:        {p: 20.0,   i: 1.0,  d:  15.0,  pid_max: 40.0, pid_min: -40.0}
-    u:        {p: 12.0,    i: 18.0,   d: 0.5,   pid_max: 50.0, pid_min: -50.0}
-    v:        {p: 3.0,    i: 0.2,   d: 0.2,   pid_max: 15.0, pid_min: -15.0}
-    roll:     {p: 3.0,   i: 0.5,  d: 0.5,  pid_max: 15.0, pid_min: -15.0}
-    pitch:    {p: 5.0,   i: 0.5,  d: 1.0,  pid_max: 15.0, pid_min: -15.0}
-    yaw:      {p: 25.0,   i: 1.5,   d: 25.0,  pid_max: 35.0, pid_min: -35.0}
+  # 4dof:
+  #   z:        {p: 20.0,   i: 1.0,  d:  25.0,  pid_max: 40.0, pid_min: -40.0}
+  #   u:        {p: 24.0,    i: 8.0,   d: 0.5,   pid_max: 50.0, pid_min: -50.0}
+  #   # v:        {p: 3.0,    i: 0.2,   d: 0.2,   pid_max: 15.0, pid_min: -15.0}
+  #   roll:     {p: 3.0,   i: 0.5,  d: 0.5,  pid_max: 10.0, pid_min: -10.0}
+  #   pitch:    {p: 5.0,   i: 0.5,  d: 1.0,  pid_max: 10.0, pid_min: -10.0}
+  #   yaw:      {p: 25.0,   i: 1.5,   d: 20.0,  pid_max: 30.0, pid_min: -30.0}
 
+# 4 vector thrusters
+  4dof:
+    z:        {p: 20.0,   i: 1.0,  d:  25.0,  pid_max: 40.0, pid_min: -40.0}
+    u:        {p: 24.0,    i: 8.0,   d: 0.5,   pid_max: 50.0, pid_min: -50.0}
+    v:        {p: 3.0,    i: 0.2,   d: 0.2,   pid_max: 15.0, pid_min: -15.0}
+    roll:     {p: 3.0,   i: 0.5,  d: 0.5,  pid_max: 10.0, pid_min: -10.0}
+    pitch:    {p: 5.0,   i: 0.5,  d: 1.0,  pid_max: 10.0, pid_min: -10.0}
+    yaw:      {p: 25.0,   i: 1.5,   d: 20.0,  pid_max: 30.0, pid_min: -30.0}
     
 thruster_ids:
 
@@ -61,6 +69,8 @@ vector_thruster_ids:
     servo_topic: control/surge_port_servo
     servo_joint: surge_port_servo_joint
     servo_speed: 1.0
+    # angle_limits: [-0.7854, 0.7854]
+    # angle_limits: [-1.5708, 1.5708]
     angle_limits: [-2.356, 2.356]
 
   surge_starboard:
@@ -73,6 +83,36 @@ vector_thruster_ids:
     servo_topic: control/surge_starboard_servo   #angle command
     servo_joint: surge_starboard_servo_joint
     servo_speed: 1.0
+    # angle_limits: [-0.7854, 0.7854]
+    # angle_limits: [-1.5708, 1.5708]
+    angle_limits: [-2.356, 2.356]
+
+  mid_port:
+    control_tf: mid_port_thruster_link
+    command_topic: control/thruster/mid_port
+    force_topic: control/force/mid_port
+    limits: [-25.0, 25.0] #[min, max]
+    # polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+    polynomials: [0.0, 24.9953, 6.2616, 36.1127, 2.31299]
+    servo_topic: control/mid_port_servo
+    servo_joint: mid_port_servo_joint
+    servo_speed: 1.0
+    # angle_limits: [-0.7854, 0.7854]
+    # angle_limits: [-1.5708, 1.5708]
+    angle_limits: [-2.356, 2.356]
+
+  mid_starboard:
+    control_tf: mid_starboard_thruster_link
+    command_topic: control/thruster/mid_starboard
+    force_topic: control/force/mid_starboard
+    limits: [-25.0, 25.0] #[min, max]
+    # polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+    polynomials: [0.0, 24.9953, 6.2616, 36.1127, 2.31299]
+    servo_topic: control/mid_starboard_servo   #angle command
+    servo_joint: mid_starboard_servo_joint
+    servo_speed: 1.0
+    # angle_limits: [-0.7854, 0.7854]
+    # angle_limits: [-1.5708, 1.5708]
     angle_limits: [-2.356, 2.356]
 
 # fin_ids:

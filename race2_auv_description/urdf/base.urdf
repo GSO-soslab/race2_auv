@@ -109,5 +109,23 @@
         <limit effort="10" lower="-3.14" upper="3.14" velocity="20" />
     </joint>
 
+    <!-- mid thruster -->
+    <link name = "mid_port_thruster_link"/>
+    <joint name="race2_auv/mid_port_servo_joint" type="revolute">
+        <origin rpy="1.571 0.0 -0.0" xyz="-0.06 -0.24 -0.05485"/>
+        <parent link="cg_link"/>
+        <child link="mid_port_thruster_link"/>
+        <axis xyz = "0 0 1"/>
+        <limit effort="10" lower="-3.14" upper="3.14" velocity="20" />
+    </joint>
+
+    <link name = "mid_starboard_thruster_link"/>
+    <joint name="race2_auv/mid_starboard_servo_joint" type="revolute">
+        <origin rpy="-1.571 0.0 0.0" xyz="-0.06 0.24 -0.05485"/> 
+        <parent link="cg_link"/>
+        <child link="mid_starboard_thruster_link"/>
+        <axis xyz = "0 0 1"/>
+        <limit effort="10" lower="-3.14" upper="3.14" velocity="20" />
+    </joint>
 
 </robot>
