@@ -27,7 +27,8 @@
                          /race2_auv/control/surge_starboard_servo,
                          /race2_auv/control/mid_port_servo,
                          /race2_auv/control/mid_starboard_servo]
-                       #  /race2_auv/control/stern_rudder_servo]
+                        # /race2_auv/control/stern_rudder_servo]
+
       servo_joint_names: [race2_auv/surge_port_servo_joint, 
                           race2_auv/surge_starboard_servo_joint,
                           race2_auv/mid_port_servo_joint, 
