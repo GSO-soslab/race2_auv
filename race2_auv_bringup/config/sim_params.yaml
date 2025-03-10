@@ -10,29 +10,29 @@
 /race2_auv/thruster_driver_node:
     ros__parameters:
       thruster_pub_topic: /race2_auv/stonefish/thruster_command
-      thruster_length: 6
+      thruster_length: 4
       thruster_sub_topics: [/race2_auv/control/thruster/heave_stern, 
                           /race2_auv/control/thruster/heave_bow, 
                           /race2_auv/control/thruster/surge_port, 
                           /race2_auv/control/thruster/surge_starboard,
-                          /race2_auv/control/thruster/mid_port, 
-                          /race2_auv/control/thruster/mid_starboard
+                          # /race2_auv/control/thruster/mid_port, 
+                          # /race2_auv/control/thruster/mid_starboard
                           ]
 
 /race2_auv/servo_driver_node:
     ros__parameters:
       servo_pub_topic: /race2_auv/stonefish/servo/desired_joint_states
-      servo_length: 4
+      servo_length: 2
       servo_sub_topics: [/race2_auv/control/surge_port_servo, 
-                         /race2_auv/control/surge_starboard_servo,
-                         /race2_auv/control/mid_port_servo,
-                         /race2_auv/control/mid_starboard_servo]
+                         /race2_auv/control/surge_starboard_servo]
+                        #  /race2_auv/control/mid_port_servo,
+                        #  /race2_auv/control/mid_starboard_servo]
                         # /race2_auv/control/stern_rudder_servo]
 
       servo_joint_names: [race2_auv/surge_port_servo_joint, 
-                          race2_auv/surge_starboard_servo_joint,
-                          race2_auv/mid_port_servo_joint, 
-                          race2_auv/mid_starboard_servo_joint]
+                          race2_auv/surge_starboard_servo_joint]
+                          # race2_auv/mid_port_servo_joint, 
+                          # race2_auv/mid_starboard_servo_joint]
                           # race2_auv/stern_rudder_servo_joint]
 
 /race2_auv/dvl_driver_node:

@@ -25,6 +25,12 @@
         <child link="cg_link"/>
     </joint>
 
+    <link name="cb_link"/>
+    <joint name="cb_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.02" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="cb_link"/>
+    </joint>
 
     <link name="imu"/>
     <joint name="imu_joint" type="fixed">
@@ -110,7 +116,7 @@
     </joint>
 
     <!-- mid thruster -->
-    <link name = "mid_port_thruster_link"/>
+    <!-- <link name = "mid_port_thruster_link"/>
     <joint name="race2_auv/mid_port_servo_joint" type="revolute">
         <origin rpy="1.571 0.0 -0.0" xyz="-0.06 -0.24 -0.05485"/>
         <parent link="cg_link"/>
@@ -126,6 +132,6 @@
         <child link="mid_starboard_thruster_link"/>
         <axis xyz = "0 0 1"/>
         <limit effort="10" lower="-3.14" upper="3.14" velocity="20" />
-    </joint>
+    </joint> -->
 
 </robot>

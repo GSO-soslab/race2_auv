@@ -9,7 +9,12 @@
     child_link_initial: cg_link
     world_link_initial: world_ned
     controller_no_setpoint_timeout: 2.0
-    auto_vector_direction: true
+    auto_vector_direction: false
     # total_force_cost_factor: 0.00001
-    total_force_cost_factor: 0.0025
-    # total_force_cost_factor: 0.00001 #2 thrusters
+    # total_force_cost_factor: 0.0025
+    total_force_cost_factor: 0.00001 #2 thrusters
+    use_restoring_effort: false
+    gravity: 255.0
+    buoyancy: -265.0
+    gravity_link: cg_link
+    buoyancy_link: cb_link
